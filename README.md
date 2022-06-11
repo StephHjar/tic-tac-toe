@@ -57,6 +57,7 @@ In this section you need to reference where you got your content, media and extr
 You can break the credits section up into Content and Media, depending on what you have included in your project. 
 
 ### Content 
+-[Tech with Tim](https://www.youtube.com/watch?v=u51Zjlnui4Y)'s Colorama tutorial was used to install & use Colorama, to change text colour in the terminal.
 
 ### Media
 -[Patorjk.com](https://patorjk.com/) was used to create the "Tic-Tac-Toe" ASCII lettering in the welcome message.
