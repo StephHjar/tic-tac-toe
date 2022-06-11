@@ -27,3 +27,7 @@ print(f"""{Fore.CYAN}{Style.BRIGHT}                                 WELCOME TO
     ██    ██ ██             ██    ██   ██ ██             ██    ██    ██ ██
     ██    ██  ██████        ██    ██   ██  ██████        ██     ██████  ███████
    """)
+
+username = input("What is your username?\n")
+print("\nWelcome, " + str(username) + """! Let's get started!\n\n
+What would you like to do first?""")
