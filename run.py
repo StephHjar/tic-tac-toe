@@ -20,7 +20,7 @@ high_scores = SHEET.worksheet('high_scores')
 
 high_score_data = high_scores.get_all_values()
 
-print("""                                 WELCOME TO
+print(f"""{Fore.CYAN}{Style.BRIGHT}                                 WELCOME TO
 ████████ ██  ██████     ████████  █████   ██████     ████████  ██████  ███████
    ██    ██ ██             ██    ██   ██ ██             ██    ██    ██ ██
    ██    ██ ██     █████   ██    ███████ ██      █████  ██    ██    ██ █████
