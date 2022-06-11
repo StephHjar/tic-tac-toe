@@ -30,4 +30,7 @@ print(f"""{Fore.CYAN}{Style.BRIGHT}                                 WELCOME TO
 
 username = input("What is your username?\n")
 print("\nWelcome, " + str(username) + """! Let's get started!\n
-What would you like to do first?""")
+What would you like to do first?\n
+1 - Read Instructions
+2 - Start a New Game
+3 - View High Scores""")
