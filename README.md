@@ -1,10 +1,15 @@
 # Tic-Tac-Toe
 
-In this section, you will include one or two paragraphs providing an overview of your project. Essentially, this part is your sales pitch. At this stage, you should have a name for your project so use it! Don’t introduce the project as a Portfolio project for the diploma. In this section, describe what the project hopes to accomplish, who it is intended to target and how it will be useful to the target audience. 
+Tic-Tac-Toe is a Python terminal game, which runs in the Code Institute mock terminal on Heroku. 
 
-![Responsive Mockup]()
+Users can play tic-tac-toe against a computer. The objective of the game is to place 3 Xs or 3 Os in a row on a 3x3 grid. Every time a new game starts, the first player is randomly determined (either the human user or the computer).
+
+Users can also view a high score board to see how they compare to other players. Each win counts as one point on the score board. 
 
 ## Flowchart
+I created a flowchart to determine the logic of the game before starting to code. This allowed me to visualize the steps the user and computer each need to complete as they progress through the game.
+
+This also helped with planning input validation, and the options presented to the user when the program is initalized (play game, view instructions, and view the high score board).
 ![Flowchart](assets/images/README/tictactoe_flowchart.png)
 
 ## Features 
