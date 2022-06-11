@@ -59,7 +59,7 @@ You can break the credits section up into Content and Media, depending on what y
 ### Content 
 
 ### Media
-
+-[Patorjk.com](https://patorjk.com/) was used to create the "Tic-Tac-Toe" ASCII lettering in the welcome message.
 
 Congratulations on completing your Readme, you have made another big stride in the direction of being a developer! 
 
