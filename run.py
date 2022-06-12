@@ -20,7 +20,10 @@ high_scores = SHEET.worksheet('high_scores')
 
 high_score_data = high_scores.get_all_values()
 
-print(f"""{Fore.CYAN}{Style.BRIGHT}                                 WELCOME TO
+
+def show_welcome_message():
+    """Displays the welcome message at the top of the screen."""
+    print(f"""{Fore.CYAN}{Style.BRIGHT}                                 WELCOME TO
  ████████ ██  ██████     ████████  █████   ██████     ████████  ██████  ███████
     ██    ██ ██             ██    ██   ██ ██             ██    ██    ██ ██
     ██    ██ ██     █████   ██    ███████ ██      █████  ██    ██    ██ █████
@@ -129,4 +132,10 @@ def show_instructions():
     print(exit_choice)
 
 
-get_username()
+def run():
+    """Run functions needed to start the program."""
+    show_welcome_message()
+    get_username()
+
+
+run()
