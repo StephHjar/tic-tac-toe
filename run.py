@@ -33,7 +33,7 @@ def get_username():
     """Ask the player to provide a username,
     and check whether the input is valid"""
     while True:
-        username = input("Please enter a username of 8 letters or less:\n")
+        username = input("Please enter a username between 3 and 8 letters:\n")
         if validate_username(username):
             print("\nWelcome, " + str(username) + "! Let's get started!")
             display_welcome_menu()
@@ -46,7 +46,7 @@ def validate_username(username):
     """Check the chosen username to make sure it meets all criteria:
     8 characters or less, using only letters."""
     try:
-        if len(username) > 8:
+        if len(username) > 8 or len(username) < 3:
             raise ValueError(
                 f"""This username is {len(username)} characters long.
                 Please use 8 characters or less."""
@@ -56,8 +56,8 @@ def validate_username(username):
                 """This username contains characters that are not letters in
                 the English alphabet."""
             )
-    except ValueError as e:
-        print(f"Invalid username: {e}\n")
+    except ValueError as error:
+        print(f"Invalid username: {error}\n")
         return False
 
     return True
@@ -70,12 +70,12 @@ def display_welcome_menu():
     print("""\nWhat would you like to do first?\n
     1 - Read Instructions
     2 - Start a New Game
-    3 - View High Scores""")
+    3 - View High Scores\n""")
 
 
 get_username()
 
 
 menu_choice = input("Enter a number:\n")
-if str(menu_choice) == "1":
+if str(menu_choice) == 1:
     print("here are the instructions")
