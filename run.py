@@ -70,7 +70,7 @@ def display_main_menu():
     """Display the menu options to the player after they enter a username.
     They can choose to read the instructions, start a new game, or view the
     high score board."""
-    print("""\nWhat would you like to do first?\n
+    print("""\nWhat would you like to do now?\n
     1 - Read Instructions
     2 - Start a New Game
     3 - View High Scores\n""")
@@ -115,21 +115,53 @@ def show_instructions():
     """Display instructions showing how to play tic-tac-toe, and give the user
     the option to exit the instructions when they are finished."""
     print("""INSTRUCTIONS:\n
-    The objective of the game is to get 3 Xs or 3 Os in a row, on a 3x3 grid.\n
-    Here is what to expect when you start a new game of Tic-Tac-Toe:\n
-    1) Either you or the computer will be randomly chosen to make the first
-    move. If you go first, you will be assigned the letter X. If you go second,
-    you will be assigned the letter O.\n
-    2) A 3 x 3 grid will be displayed, with each cell assigned a number from
-    one to 9.\n
-    3) Whoever goes first will pick a cell to place their X. The next player
-    will then select a cell to place their O.
-    4) The game will continue until either you or the computer has 3 Xs or Os
-    in a row on the board. Then, a winner will be declared. You will have the
-    option to play again, or log your high score.\n
+    The objective of the game is to get 3 Xs or 3 Os in a row, on a 3x3
+    grid.\n
+    Here is what to expect when you start a new game of Tic-Tac- Toe:\n
+    1) Either you or the computer will be randomly chosen to make the
+    first move. If you go first, you will be assigned the letter X. If you
+    go second, you will be assigned the letter O.\n
+    2) A 3 x 3 grid will be displayed, with each cell assigned a number
+    from 1 to 9.\n
+    3) Whoever goes first will pick a cell to place their X. The next
+    player will then select a cell to place their O.\n
+    4) The game will continue alternating turns until either you or the
+    computer has 3 Xs or Os in a row on the board. Then, a winner will be
+    declared. You will have the option to play again, or log your high
+    score.\n
     Have fun!\n""")
-    exit_choice = input("Exit Instructions? Y/N\n")
-    print(exit_choice)
+    exit_option()
+
+
+def exit_option():
+    """Shows the user the option to exit the current page and return to the
+    main menu"""
+    while True:
+        exit_choice = input(str("Exit to main menu? Y/N\n"))
+        if exit_choice.lower() == "y":
+            print("Okay! Exiting to the main menu...")
+            display_main_menu()
+            break
+        if exit_choice.lower() == "n":
+            print("Okay! Let me know when you are ready to exit.")
+            continue
+        validate_exit(exit_choice)
+
+    return exit_choice
+
+
+def validate_exit(choice):
+    """Validate a user's entry when they are given the option to exit and
+    return to a previous screen (from the instructions and high score pages).
+    Display an error message if anything other than Y or N is entered."""
+    try:
+        if choice.lower() != "y" or choice.lower() != "n":
+            raise ValueError(f"""You entered '{choice}'. Please enter either Y
+            (for yes) or N (for no).""")
+    except ValueError as error:
+        print(f"Invalid entry: {error}")
+        return False
+    return True
 
 
 def run():
