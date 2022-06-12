@@ -1,9 +1,11 @@
 """Import external libraries"""
+from tabulate import tabulate
 import gspread
 from google.oauth2.service_account import Credentials
 import colorama
 from colorama import Fore, Style
 colorama.init(autoreset=True)
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -168,7 +170,7 @@ def validate_exit(choice):
 def show_high_scores():
     """Displays the high score board to the user, and gives them the option to
     exit to the main menu."""
-    print("Here are the high scores!")
+    print(tabulate(high_score_data, headers=["Username", "Score"]))
     exit_option()
 
 
