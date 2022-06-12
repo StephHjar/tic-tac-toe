@@ -71,7 +71,7 @@ def display_welcome_menu():
     1 - Read Instructions
     2 - Start a New Game
     3 - View High Scores\n""")
-    menu_choice = int(input("Enter a number:\n"))
+    menu_choice = input("Enter a number:\n")
     choose_menu_option(menu_choice)
 
 
@@ -79,13 +79,33 @@ def choose_menu_option(entry):
     """Respond to the player's choice in the welcome menu. Validate that the
     input is one of the available options, and call the correct function based
     on the user's choice."""
-    if entry == 1:
-        print("here are the instructions")
-    elif entry == 2:
-        print("let's start a game!")
-    elif entry == 3:
-        print("here is the high score board!")
-    display_welcome_menu()
-    
+    while True:
+        if validate_num(entry):
+            if int(entry) == 1:
+                print("here are the instructions")
+                break
+            if int(entry) == 2:
+                print("let's start a game!")
+                break
+            if int(entry) == 3:
+                print("here is the high score board!")
+                break
+            print("\nInvalid entry: Please enter a number between 1 - 3.")
+        display_welcome_menu()
+        break
+
+
+def validate_num(num):
+    """Check that a user's numerical entry is a valid number. Return relevant
+    error messages if not."""
+    try:
+        if num.isdigit() is False:
+            raise TypeError("Please enter a valid number.")
+    except TypeError as error:
+        print(f"\nInvalid entry: {error}\n")
+        return False
+
+    return True
+
 
 get_username()
