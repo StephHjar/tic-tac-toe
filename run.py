@@ -49,16 +49,17 @@ def validate_username(username):
     """Check the chosen username to make sure it meets all criteria:
     8 characters or less, using only letters."""
     try:
+        if username.isalpha() is False:
+            raise ValueError(
+                f"""The username '{username}' contains characters that are not letters.
+                Please only use letters between A - Z."""
+            )
         if len(username) > 8 or len(username) < 3:
             raise ValueError(
                 f"""This username is {len(username)} characters long.
-                Please use 8 characters or less."""
+                Please use between 3 and 8 letters."""
             )
-        if username.isalpha() is False:
-            raise ValueError(
-                """This username contains characters that are not letters in
-                the English alphabet."""
-            )
+
     except ValueError as error:
         print(f"Invalid username: {error}\n")
         return False
