@@ -82,7 +82,7 @@ def choose_menu_option(entry):
     while True:
         if validate_num(entry):
             if int(entry) == 1:
-                print("here are the instructions")
+                show_instructions()
                 break
             if int(entry) == 2:
                 print("let's start a game!")
@@ -106,6 +106,27 @@ def validate_num(num):
         return False
 
     return True
+
+
+def show_instructions():
+    """Display instructions showing how to play tic-tac-toe, and give the user
+    the option to exit the instructions when they are finished."""
+    print("""INSTRUCTIONS:\n
+    The objective of the game is to get 3 Xs or 3 Os in a row, on a 3x3 grid.\n
+    Here is what to expect when you start a new game of Tic-Tac-Toe:\n
+    1) Either you or the computer will be randomly chosen to make the first
+    move. If you go first, you will be assigned the letter X. If you go second,
+    you will be assigned the letter O.\n
+    2) A 3 x 3 grid will be displayed, with each cell assigned a number from
+    one to 9.\n
+    3) Whoever goes first will pick a cell to place their X. The next player
+    will then select a cell to place their O.
+    4) The game will continue until either you or the computer has 3 Xs or Os
+    in a row on the board. Then, a winner will be declared. You will have the
+    option to play again, or log your high score.\n
+    Have fun!\n""")
+    exit_choice = input("Exit Instructions? Y/N\n")
+    print(exit_choice)
 
 
 get_username()
