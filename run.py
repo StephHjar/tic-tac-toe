@@ -31,7 +31,7 @@ def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-def display_welcome_message():
+def display_header():
     """Displays the welcome message at the top of the screen."""
     print(f"""{Fore.CYAN}{Style.BRIGHT}                                  WELCOME TO
  ████████ ██  ██████     ████████  █████   ██████     ████████  ██████  ███████
@@ -49,8 +49,8 @@ def get_username():
         username = input("Please enter a username between 3 and 8 letters:\n")
         if validate_username(username):
             clear()
-            print("\nWelcome, " + str(username) + "! Let's get ready to play!")
-            display_welcome_message()
+            print("\nHello, " + str(username) + "! Let's get ready to play!\n")
+            display_header()
             display_main_menu()
             break
 
@@ -99,17 +99,17 @@ def choose_menu_option(entry):
         if validate_num(entry):
             if int(entry) == 1:
                 clear()
-                display_welcome_message()
+                display_header()
                 show_instructions()
                 break
             if int(entry) == 2:
                 clear()
-                display_welcome_message()
+                display_header()
                 start_new_game()
                 break
             if int(entry) == 3:
                 clear()
-                display_welcome_message()
+                display_header()
                 show_high_scores()
                 break
             print("\nInvalid entry: Please enter a number between 1 - 3.")
@@ -175,7 +175,7 @@ def exit_option():
         if exit_choice.lower() == "y":
             print("Okay! Exiting to the main menu...")
             clear()
-            display_welcome_message()
+            display_header()
             display_main_menu()
             break
         if exit_choice.lower() == "n":
@@ -202,7 +202,7 @@ def validate_exit(choice):
 
 def run():
     """Run functions needed to start the program."""
-    display_welcome_message()
+    display_header()
     get_username()
 
 
