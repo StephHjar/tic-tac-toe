@@ -1,4 +1,5 @@
 """Import external libraries"""
+import os
 from tabulate import tabulate
 import gspread
 from google.oauth2.service_account import Credentials
@@ -23,9 +24,16 @@ high_scores = SHEET.worksheet('high_scores')
 high_score_data = high_scores.get_all_values()
 
 
-def show_welcome_message():
+def clear():
+    """
+    Clear function to clean-up the terminal so things don't get messy.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+
+
+def display_welcome_message():
     """Displays the welcome message at the top of the screen."""
-    print(f"""{Fore.CYAN}{Style.BRIGHT}                                 WELCOME TO
+    print(f"""{Fore.CYAN}{Style.BRIGHT}                                  WELCOME TO
  ████████ ██  ██████     ████████  █████   ██████     ████████  ██████  ███████
     ██    ██ ██             ██    ██   ██ ██             ██    ██    ██ ██
     ██    ██ ██     █████   ██    ███████ ██      █████  ██    ██    ██ █████
@@ -40,7 +48,9 @@ def get_username():
     while True:
         username = input("Please enter a username between 3 and 8 letters:\n")
         if validate_username(username):
-            print("\nWelcome, " + str(username) + "! Let's get started!")
+            clear()
+            print("\nWelcome, " + str(username) + "! Let's get ready to play!")
+            display_welcome_message()
             display_main_menu()
             break
 
@@ -88,12 +98,18 @@ def choose_menu_option(entry):
     while True:
         if validate_num(entry):
             if int(entry) == 1:
+                clear()
+                display_welcome_message()
                 show_instructions()
                 break
             if int(entry) == 2:
+                clear()
+                display_welcome_message()
                 start_new_game()
                 break
             if int(entry) == 3:
+                clear()
+                display_welcome_message()
                 show_high_scores()
                 break
             print("\nInvalid entry: Please enter a number between 1 - 3.")
@@ -158,6 +174,8 @@ def exit_option():
         exit_choice = input(str("\nExit to main menu? Y/N\n"))
         if exit_choice.lower() == "y":
             print("Okay! Exiting to the main menu...")
+            clear()
+            display_welcome_message()
             display_main_menu()
             break
         if exit_choice.lower() == "n":
@@ -184,7 +202,7 @@ def validate_exit(choice):
 
 def run():
     """Run functions needed to start the program."""
-    show_welcome_message()
+    display_welcome_message()
     get_username()
 
 
