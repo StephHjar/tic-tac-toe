@@ -92,7 +92,7 @@ def choose_menu_option(entry):
                 print("let's start a game!")
                 break
             if int(entry) == 3:
-                print("here is the high score board!")
+                show_high_scores()
                 break
             print("\nInvalid entry: Please enter a number between 1 - 3.")
         display_main_menu()
@@ -163,6 +163,13 @@ def validate_exit(choice):
         print(f"Invalid entry: {error}")
         return False
     return True
+
+
+def show_high_scores():
+    """Displays the high score board to the user, and gives them the option to
+    exit to the main menu."""
+    print("Here are the high scores!")
+    exit_option()
 
 
 def run():
