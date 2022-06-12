@@ -140,7 +140,7 @@ def exit_option():
     """Shows the user the option to exit the current page and return to the
     main menu"""
     while True:
-        exit_choice = input(str("Exit to main menu? Y/N\n"))
+        exit_choice = input(str("\nExit to main menu? Y/N\n"))
         if exit_choice.lower() == "y":
             print("Okay! Exiting to the main menu...")
             display_main_menu()
@@ -170,6 +170,7 @@ def validate_exit(choice):
 def show_high_scores():
     """Displays the high score board to the user, and gives them the option to
     exit to the main menu."""
+    print("\nHIGH SCORES\n")
     print(tabulate(high_score_data, headers=["Username", "Score"]))
     exit_option()
 
