@@ -91,7 +91,7 @@ def choose_menu_option(entry):
                 show_instructions()
                 break
             if int(entry) == 2:
-                print("let's start a game!")
+                start_new_game()
                 break
             if int(entry) == 3:
                 show_high_scores()
@@ -136,6 +136,21 @@ def show_instructions():
     exit_option()
 
 
+def start_new_game():
+    """Start a new game of tic-tac-toe by displaying the game board and
+    determining who will play first."""
+    print("let's start a new game!")
+    exit_option()
+
+
+def show_high_scores():
+    """Display the high score board to the user, and gives them the option to
+    exit to the main menu."""
+    print("\nHIGH SCORES\n")
+    print(tabulate(high_score_data[1:6:1], headers=["Username", "Score"]))
+    exit_option()
+
+
 def exit_option():
     """Shows the user the option to exit the current page and return to the
     main menu"""
@@ -165,14 +180,6 @@ def validate_exit(choice):
         print(f"Invalid entry: {error}")
         return False
     return True
-
-
-def show_high_scores():
-    """Displays the high score board to the user, and gives them the option to
-    exit to the main menu."""
-    print("\nHIGH SCORES\n")
-    print(tabulate(high_score_data[1:6:1], headers=["Username", "Score"]))
-    exit_option()
 
 
 def run():
