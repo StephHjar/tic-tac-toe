@@ -39,7 +39,7 @@ def get_username():
         username = input("Please enter a username between 3 and 8 letters:\n")
         if validate_username(username):
             print("\nWelcome, " + str(username) + "! Let's get started!")
-            display_welcome_menu()
+            display_main_menu()
             break
 
     return username
@@ -66,7 +66,7 @@ def validate_username(username):
     return True
 
 
-def display_welcome_menu():
+def display_main_menu():
     """Display the menu options to the player after they enter a username.
     They can choose to read the instructions, start a new game, or view the
     high score board."""
@@ -94,7 +94,7 @@ def choose_menu_option(entry):
                 print("here is the high score board!")
                 break
             print("\nInvalid entry: Please enter a number between 1 - 3.")
-        display_welcome_menu()
+        display_main_menu()
         break
 
 
