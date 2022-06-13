@@ -212,6 +212,7 @@ def start_new_game():
     """Starts a new game of tic-tac-toe. Resets the player and computer scores
     to 0 and displays a new game board."""
     new_screen()
+    print("")
 
     class Board():
         """
@@ -222,9 +223,12 @@ def start_new_game():
 
         def __init__(self):
             self.cells = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-            self.guesses = []    
-        
+            self.guesses = []
+
         def display(self):
+            """Displays the game board, with numbers in each cell so the
+            player knows which cell corresponds to which number when making
+            guesses."""
             print(f""" {self.cells[0]} | {self.cells[1]} | {self.cells[2]} """)
             print(" ---------")
             print(f""" {self.cells[3]} | {self.cells[4]} | {self.cells[5]} """)
