@@ -273,7 +273,8 @@ def start_new_game():
     """
     new_screen()
     display_board_guide()
-    board.display()
+    new_board = Board()
+    new_board.display()
     choose_player()
     exit_option()
 
@@ -290,7 +291,7 @@ def choose_player():
         player_computer = Player("X")
     print(f"""\nYou will play as {player_human.playing_as}! The computer will play
 as {player_computer.playing_as}. X goes first.""")
-    time.sleep(4)
+    time.sleep(2)
     if player_human.playing_as == "X":
         take_human_turn(player_human.playing_as)
     if player_human.playing_as == "O":
@@ -311,7 +312,7 @@ def take_human_turn(player):
             if validate_move(cell_choice):
                 guesses.append(cell_choice)
                 update_board(cell_choice, player)
-                print(f"""Ok! You have chosen cell {cell_choice}.\n
+                print(f"""\nOkay! You have chosen cell {cell_choice}.\n
 The computer will go next...""")
                 time.sleep(2)
         if player == "X":
@@ -326,7 +327,7 @@ def take_computer_turn(player):
     cell on the board.
     """
     while True:
-        cell_choice = random.randint(1, 10)
+        cell_choice = random.randint(1, 9)
         if validate_move(cell_choice):
             guesses.append(cell_choice)
             update_board(cell_choice, player)
@@ -352,7 +353,7 @@ between 1 - 9.""")
         if cell in guesses:
             raise ValueError("""This cell is already occupied. Please enter
 another number.""")
-        if len(guesses) >= 9:
+        if len(guesses) > 9:
             declare_draw()
     except ValueError as error:
         print(f"\nInvalid entry: {error}")
