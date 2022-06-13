@@ -98,18 +98,15 @@ def choose_menu_option(entry):
     while True:
         if validate_num(entry):
             if int(entry) == 1:
-                clear()
-                display_header()
+                new_screen()
                 show_instructions()
                 break
             if int(entry) == 2:
-                clear()
-                display_header()
+                new_screen()
                 start_new_game()
                 break
             if int(entry) == 3:
-                clear()
-                display_header()
+                new_screen()
                 show_high_scores()
                 break
             print("\nInvalid entry: Please enter a number between 1 - 3.")
@@ -174,8 +171,7 @@ def exit_option():
         exit_choice = input(str("\nExit to main menu? Y/N\n"))
         if exit_choice.lower() == "y":
             print("Okay! Exiting to the main menu...")
-            clear()
-            display_header()
+            new_screen()
             display_main_menu()
             break
         if exit_choice.lower() == "n":
@@ -198,6 +194,14 @@ def validate_exit(choice):
         print(f"Invalid entry: {error}")
         return False
     return True
+
+
+def new_screen():
+    """Clear the screen and display the header whenever a player loads a new
+    screen in the terminal (i.e. instructions page, high score board, starting
+    a new game)."""
+    clear()
+    display_header()
 
 
 def run():
