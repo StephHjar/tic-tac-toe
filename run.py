@@ -247,8 +247,13 @@ def start_new_game():
 def choose_player():
     """Randomly assigns X or O to the player or the computer when a new game
     is run."""
-    player = Player(random.choice(["X", "O"]))
-    print(f"\nYou will play as {player.turn}! X goes first.")
+    player_human = Player(random.choice(["X", "O"]))
+    if player_human.turn == "X":
+        player_computer = Player("O")
+    if player_human.turn == "O":
+        player_computer = Player("X")
+    print(f"""\nYou will play as {player_human.turn}! The computer will play
+as {player_computer.turn}. X goes first.""")
 
 
 def display_board_guide():
