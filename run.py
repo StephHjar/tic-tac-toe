@@ -328,6 +328,8 @@ def take_computer_turn(player):
     """
     while True:
         cell_choice = random.randint(1, 9)
+        while cell_choice in guesses:
+            cell_choice = random.randint(1, 9)
         if validate_move(cell_choice):
             guesses.append(cell_choice)
             update_board(cell_choice, player)
@@ -350,7 +352,7 @@ def validate_move(cell):
         if int(cell) < 1 or int(cell) > 9:
             raise ValueError(f"""\nYou entered {cell}. Please enter a number
 between 1 - 9.""")
-        if cell in guesses:
+        if int(cell) in guesses:
             raise ValueError("""This cell is already occupied. Please enter
 another number.""")
         if len(guesses) > 9:
