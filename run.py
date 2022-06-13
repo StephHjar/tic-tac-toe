@@ -212,7 +212,7 @@ def start_new_game():
     """Starts a new game of tic-tac-toe. Resets the player and computer scores
     to 0 and displays a new game board."""
     new_screen()
-    print("")
+    display_board_guide()
 
     class Board():
         """
@@ -222,22 +222,35 @@ def start_new_game():
         """
 
         def __init__(self):
-            self.cells = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+            self.cells = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
             self.guesses = []
 
         def display(self):
             """Displays the game board, with numbers in each cell so the
             player knows which cell corresponds to which number when making
             guesses."""
-            print(f""" {self.cells[0]} | {self.cells[1]} | {self.cells[2]} """)
+            print("Here is the active game board:\n")
+            print(f" {self.cells[0]} | {self.cells[1]} | {self.cells[2]} ")
             print(" ---------")
-            print(f""" {self.cells[3]} | {self.cells[4]} | {self.cells[5]} """)
+            print(f" {self.cells[3]} | {self.cells[4]} | {self.cells[5]} ")
             print(" ---------")
-            print(f""" {self.cells[6]} | {self.cells[7]} | {self.cells[8]} """)
+            print(f" {self.cells[6]} | {self.cells[7]} | {self.cells[8]} ")
 
     board = Board()
     board.display()
     exit_option()
+
+
+def display_board_guide():
+    """Displays a sample board with numbered cells, so the user knows which
+    number to input for each cell."""
+    print("""Use this board as a guide when making guesses. Each number
+corresponds to a cell on the board.\n""")
+    print(" 1 | 2 | 3 ")
+    print(" ---------")
+    print(" 4 | 5 | 6 ")
+    print(" ---------")
+    print(" 7 | 8 | 9 \n")
 
 
 def run():
