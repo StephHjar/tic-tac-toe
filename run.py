@@ -233,6 +233,7 @@ def start_new_game():
 
     board = Board()
     board.display()
+    exit_option()
 
 
 def run():
