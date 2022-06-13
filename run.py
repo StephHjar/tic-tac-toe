@@ -290,18 +290,17 @@ as {player_computer.turn}. X goes first.""")
 def take_human_turn(value):
     """
     Prompts the player to take their turn, by choosing a cell on the board
-    to place their X or O.
+    to place their X or O. Triggers validation workflow to ensure the entry is
+    valid.
     """
     print("\nIt's your turn!")
     while True:
         cell_choice = input(f"""\nWhere would you like to place your
 {value}?\n""")
         if validate_num(cell_choice):
-            if int(cell_choice) < 1 or int(cell_choice) > 9:
-                print(f"""\nYou entered {cell_choice}. Please enter a number
-between 1 - 9.""")
-            validate_move(cell_choice)
-            guesses.append(cell_choice)
+            if validate_move(cell_choice):
+                guesses.append(cell_choice)
+                print(f"Ok! Placing {value} in cell {cell_choice}.")
 
 
 def take_computer_turn(value):
@@ -317,8 +316,17 @@ def validate_move(cell):
     Checks to make sure the player or computer is making a valid move: i.e.
     placing their X or O in an empty square.
     """
-    if cell in guesses:
-        print("This cell is already occupied. Please enter another number.")
+    try:
+        if int(cell) < 1 or int(cell) > 9:
+            raise ValueError(f"""\nYou entered {cell}. Please enter a number
+between 1 - 9.""")
+        if cell in guesses:
+            raise ValueError("""This cell is already occupied. Please enter
+another number.""")
+    except ValueError as error:
+        print(f"\nInvalid entry: {error}")
+        return False
+    return True
 
 
 def display_board_guide():
