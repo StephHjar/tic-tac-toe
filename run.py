@@ -310,15 +310,15 @@ def take_human_turn(player):
 {player}?\n""")
         if validate_num(cell_choice):
             if validate_move(cell_choice):
-                guesses.append(cell_choice)
+                guesses.append(int(cell_choice))
                 update_board(cell_choice, player)
                 print(f"""\nOkay! You have chosen cell {cell_choice}.\n
 The computer will go next...""")
                 time.sleep(2)
-        if player == "X":
-            take_computer_turn("O")
-        else:
-            take_computer_turn("X")
+            if player == "X":
+                take_computer_turn("O")
+            else:
+                take_computer_turn("X")
 
 
 def take_computer_turn(player):
@@ -337,10 +337,10 @@ def take_computer_turn(player):
 {cell_choice}.\n
 Please wait for your turn to begin...""")
             time.sleep(3)
-        if player == "X":
-            take_human_turn("O")
-        else:
-            take_human_turn("X")
+            if player == "X":
+                take_human_turn("O")
+            else:
+                take_human_turn("X")
 
 
 def validate_move(cell):
