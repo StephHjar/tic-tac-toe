@@ -1,6 +1,7 @@
 """Import external libraries"""
 import os
 import time
+import random
 from tabulate import tabulate
 import gspread
 from google.oauth2.service_account import Credentials
@@ -25,6 +26,37 @@ high_scores = SHEET.worksheet('high_scores')
 high_score_data = high_scores.get_all_values()
 
 scores = {"computer": 0, "player": 0}
+guesses = []
+
+
+class Board():
+    """
+    Main game board class. This sets the board size, and has methods for
+    adding guesses and printing the board. Some of the code used here was
+    modified from TokyoEdtech's Youtube tutorial (credit in README).
+    """
+
+    def __init__(self):
+        self.cells = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+
+    def display(self):
+        """Displays the game board, with numbers in each cell so the
+        player knows which cell corresponds to which number when making
+        guesses."""
+        print("Here is the active game board:\n")
+        print(f" {self.cells[0]} | {self.cells[1]} | {self.cells[2]} ")
+        print(" ---------")
+        print(f" {self.cells[3]} | {self.cells[4]} | {self.cells[5]} ")
+        print(" ---------")
+        print(f" {self.cells[6]} | {self.cells[7]} | {self.cells[8]} ")
+
+
+class Player():
+    """Player class. This determines whether the player or computer is playing
+    Xs or Os."""
+
+    def __init__(self, turn):
+        self.turn = turn
 
 
 def clear():
@@ -152,13 +184,6 @@ def show_instructions():
     exit_option()
 
 
-# def start_new_game():
-#    """Start a new game of tic-tac-toe by displaying the game board and
-#    determining who will play first."""
-# print("let's start a new game!")
-# exit_option()
-
-
 def show_high_scores():
     """Display the high score board to the user, and gives them the option to
     exit to the main menu."""
@@ -213,32 +238,17 @@ def start_new_game():
     to 0 and displays a new game board."""
     new_screen()
     display_board_guide()
-
-    class Board():
-        """
-        Main game board class. This sets the board size, and has methods for
-        adding guesses and printing the board. Some of the code used here was
-        modified from TokyoEdtech's Youtube tutorial (credit in README).
-        """
-
-        def __init__(self):
-            self.cells = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-            self.guesses = []
-
-        def display(self):
-            """Displays the game board, with numbers in each cell so the
-            player knows which cell corresponds to which number when making
-            guesses."""
-            print("Here is the active game board:\n")
-            print(f" {self.cells[0]} | {self.cells[1]} | {self.cells[2]} ")
-            print(" ---------")
-            print(f" {self.cells[3]} | {self.cells[4]} | {self.cells[5]} ")
-            print(" ---------")
-            print(f" {self.cells[6]} | {self.cells[7]} | {self.cells[8]} ")
-
     board = Board()
     board.display()
+    choose_player()
     exit_option()
+
+
+def choose_player():
+    """Randomly assigns X or O to the player or the computer when a new game
+    is run."""
+    player = Player(random.choice(["X", "O"]))
+    print(f"\nYou will play as {player.turn}! X goes first.")
 
 
 def display_board_guide():
