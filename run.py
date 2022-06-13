@@ -44,7 +44,7 @@ def display_header():
 
 def get_username():
     """Ask the player to provide a username,
-    and check whether the input is valid"""
+    and check whether the input is valid."""
     while True:
         username = input("Please enter a username between 3 and 8 letters:\n")
         if validate_username(username):
@@ -169,7 +169,7 @@ def show_high_scores():
 
 def exit_option():
     """Shows the user the option to exit the current page and return to the
-    main menu"""
+    main menu."""
     while True:
         exit_choice = input(str("\nExit to main menu? Y/N\n"))
         if exit_choice.lower() == "y":
