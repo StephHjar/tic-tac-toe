@@ -160,7 +160,7 @@ def show_high_scores():
     """Display the high score board to the user, and gives them the option to
     exit to the main menu."""
     print("\nHIGH SCORES\n")
-    print(tabulate(high_score_data[1:6:1], headers=["Username", "Score"]))
+    print(tabulate(high_score_data[0:6:1], headers=["Username", "Score"]))
     exit_option()
 
 
