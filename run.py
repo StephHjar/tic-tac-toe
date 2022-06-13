@@ -70,8 +70,8 @@ class Player():
     Xs or Os.
     """
 
-    def __init__(self, turn):
-        self.turn = turn
+    def __init__(self, playing_as):
+        self.playing_as = playing_as
 
 
 def clear():
@@ -284,19 +284,19 @@ def choose_player():
     is run.
     """
     player_human = Player(random.choice(["X", "O"]))
-    if player_human.turn == "X":
+    if player_human.playing_as == "X":
         player_computer = Player("O")
     else:
         player_computer = Player("X")
-    print(f"""\nYou will play as {player_human.turn}! The computer will play
-as {player_computer.turn}. X goes first.""")
-    if player_human.turn == "X":
-        take_human_turn()
-    if player_human.turn == "O":
-        take_computer_turn()
+    print(f"""\nYou will play as {player_human.playing_as}! The computer will play
+as {player_computer.playing_as}. X goes first.""")
+    if player_human.playing_as == "X":
+        take_human_turn(player_human.playing_as)
+    if player_human.playing_as == "O":
+        take_computer_turn(player_computer.playing_as)
 
 
-def take_human_turn():
+def take_human_turn(player):
     """
     Prompts the player to take their turn, by choosing a cell on the board
     to place their X or O. Triggers validation workflow to ensure the entry is
@@ -304,16 +304,21 @@ def take_human_turn():
     """
     print("\nIt's your turn!")
     while True:
-        cell_choice = input("\nWhere would you like to make your move?\n")
+        cell_choice = input(f"""\nWhere would you like to place your
+{player}?\n""")
         if validate_num(cell_choice):
             if validate_move(cell_choice):
                 guesses.append(cell_choice)
                 print(f"Ok! You have chosen cell {cell_choice}.")
                 time.sleep(1)
-                update_board(cell_choice)
+                update_board(cell_choice, player)
+        if player == "X":
+            take_computer_turn("O")
+        else:
+            take_computer_turn("X")
 
 
-def take_computer_turn():
+def take_computer_turn(player):
     """
     Makes the computer take its turn, by placing an X or O in a random free
     cell on the board.
@@ -322,8 +327,14 @@ def take_computer_turn():
         cell_choice = random.randint(1, 10)
         if validate_move(cell_choice):
             guesses.append(cell_choice)
-            print(f"\nComputer has chosen cell {cell_choice}.")
-            return cell_choice
+            print(f"""\nComputer has chosen to place their {player} in cell
+{cell_choice}.""")
+            time.sleep(1)
+            update_board(cell_choice, player)
+        if player == "X":
+            take_human_turn("O")
+        else:
+            take_human_turn("X")
 
 
 def validate_move(cell):
@@ -346,13 +357,13 @@ another number.""")
     return True
 
 
-def update_board(num):
+def update_board(num, symbol):
     """
     Passes the player or computer's move to the board and updates it.
     """
     clear()
     display_header()
-    board.update_cell(int(num) - 1, "X")
+    board.update_cell(int(num) - 1, symbol)
     board.display()
 
 
