@@ -52,6 +52,17 @@ class Board():
         print(" ---------")
         print(f" {self.cells[6]} | {self.cells[7]} | {self.cells[8]} ")
 
+    def update_cell(self, cell_no, player):
+        """
+        Updates a cell in the board with the player or computer's move (X or
+        O).
+        """
+        self.cells[cell_no] = player
+        return self.cells
+
+
+board = Board()
+
 
 class Player():
     """
@@ -262,7 +273,6 @@ def start_new_game():
     """
     new_screen()
     display_board_guide()
-    board = Board()
     board.display()
     choose_player()
     exit_option()
@@ -299,7 +309,8 @@ def take_human_turn():
             if validate_move(cell_choice):
                 guesses.append(cell_choice)
                 print(f"Ok! You have chosen cell {cell_choice}.")
-                return cell_choice
+                time.sleep(1)
+                update_board(cell_choice)
 
 
 def take_computer_turn():
@@ -333,6 +344,16 @@ another number.""")
         print(f"\nInvalid entry: {error}")
         return False
     return True
+
+
+def update_board(num):
+    """
+    Passes the player or computer's move to the board and updates it.
+    """
+    clear()
+    display_header()
+    board.update_cell(int(num) - 1, "X")
+    board.display()
 
 
 def declare_draw():
