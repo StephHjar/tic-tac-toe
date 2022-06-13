@@ -255,6 +255,22 @@ def choose_player():
         player_computer = Player("X")
     print(f"""\nYou will play as {player_human.turn}! The computer will play
 as {player_computer.turn}. X goes first.""")
+    if player_human.turn == "X":
+        take_human_turn(player_human.turn)
+    print("Computer will go first.")
+
+
+def take_human_turn(value):
+    """Prompts the player to take their turn, by choosing a cell on the board
+    to place their X or O."""
+    print("\nIt's your turn!")
+    while True:
+        cell_choice = input(f"""\nWhere would you like to place your
+{value}?\n""")
+        if validate_num(cell_choice):
+            if int(cell_choice) < 1 or int(cell_choice) > 9:
+                print(f"""\nYou entered {cell_choice}. Please enter a number
+between 1 - 9.""")
 
 
 def display_board_guide():
