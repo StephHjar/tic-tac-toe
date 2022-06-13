@@ -278,13 +278,14 @@ def choose_player():
     player_human = Player(random.choice(["X", "O"]))
     if player_human.turn == "X":
         player_computer = Player("O")
-    if player_human.turn == "O":
+    else:
         player_computer = Player("X")
     print(f"""\nYou will play as {player_human.turn}! The computer will play
 as {player_computer.turn}. X goes first.""")
     if player_human.turn == "X":
         take_human_turn(player_human.turn)
-    take_computer_turn(player_computer.turn)
+    else:
+        take_computer_turn(player_computer.turn)
 
 
 def take_human_turn(value):
@@ -308,7 +309,12 @@ def take_computer_turn(value):
     Makes the computer take its turn, by placing an X or O in a random free
     cell on the board.
     """
-    print(f"Computer will play as {value}.")
+    while True:
+        cell_choice = random.randint(1, 10)
+        if validate_move(cell_choice):
+            guesses.append(cell_choice)
+            print(f"\nOk! Placing {value} in cell {cell_choice}.")
+            exit_option()
 
 
 def validate_move(cell):
@@ -323,10 +329,16 @@ between 1 - 9.""")
         if cell in guesses:
             raise ValueError("""This cell is already occupied. Please enter
 another number.""")
+        if len(guesses) >= 9:
+            declare_draw()
     except ValueError as error:
         print(f"\nInvalid entry: {error}")
         return False
     return True
+
+
+def declare_draw():
+    print("The game has ended in a draw! No points will be awarded. Play again?")
 
 
 def display_board_guide():
