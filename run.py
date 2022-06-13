@@ -1,5 +1,6 @@
 """Import external libraries"""
 import os
+import time
 from tabulate import tabulate
 import gspread
 from google.oauth2.service_account import Credentials
@@ -171,6 +172,7 @@ def exit_option():
         exit_choice = input(str("\nExit to main menu? Y/N\n"))
         if exit_choice.lower() == "y":
             print("Okay! Exiting to the main menu...")
+            time.sleep(1)
             new_screen()
             display_main_menu()
             break
