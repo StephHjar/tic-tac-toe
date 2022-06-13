@@ -90,8 +90,6 @@ def get_username():
         if validate_username(username):
             clear()
             print("\nHello, " + str(username) + "! Let's get ready to play!\n")
-            display_header()
-            display_main_menu()
             break
 
     return username
@@ -301,6 +299,7 @@ def take_human_turn():
             if validate_move(cell_choice):
                 guesses.append(cell_choice)
                 print(f"Ok! You have chosen cell {cell_choice}.")
+                return cell_choice
 
 
 def take_computer_turn():
@@ -313,6 +312,7 @@ def take_computer_turn():
         if validate_move(cell_choice):
             guesses.append(cell_choice)
             print(f"\nComputer has chosen cell {cell_choice}.")
+            return cell_choice
 
 
 def validate_move(cell):
@@ -358,12 +358,14 @@ corresponds to a cell on the board.\n""")
     print(" 7 | 8 | 9 \n")
 
 
-def run():
+def main():
     """
     Run functions needed to start the program.
     """
     display_header()
     get_username()
+    display_header()
+    display_main_menu()
 
 
-run()
+main()
