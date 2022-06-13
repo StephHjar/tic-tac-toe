@@ -290,6 +290,7 @@ def choose_player():
         player_computer = Player("X")
     print(f"""\nYou will play as {player_human.playing_as}! The computer will play
 as {player_computer.playing_as}. X goes first.""")
+    time.sleep(4)
     if player_human.playing_as == "X":
         take_human_turn(player_human.playing_as)
     if player_human.playing_as == "O":
@@ -309,9 +310,10 @@ def take_human_turn(player):
         if validate_num(cell_choice):
             if validate_move(cell_choice):
                 guesses.append(cell_choice)
-                print(f"Ok! You have chosen cell {cell_choice}.")
-                time.sleep(1)
                 update_board(cell_choice, player)
+                print(f"""Ok! You have chosen cell {cell_choice}.\n
+The computer will go next...""")
+                time.sleep(2)
         if player == "X":
             take_computer_turn("O")
         else:
@@ -327,10 +329,11 @@ def take_computer_turn(player):
         cell_choice = random.randint(1, 10)
         if validate_move(cell_choice):
             guesses.append(cell_choice)
-            print(f"""\nComputer has chosen to place their {player} in cell
-{cell_choice}.""")
-            time.sleep(1)
             update_board(cell_choice, player)
+            print(f"""\nComputer has chosen to place their {player} in cell
+{cell_choice}.\n
+Please wait for your turn to begin...""")
+            time.sleep(3)
         if player == "X":
             take_human_turn("O")
         else:
@@ -363,6 +366,7 @@ def update_board(num, symbol):
     """
     clear()
     display_header()
+    display_board_guide()
     board.update_cell(int(num) - 1, symbol)
     board.display()
 
@@ -374,6 +378,7 @@ def declare_draw():
     """
     print("""The game has ended in a draw! No points will be awarded. Play
 again?""")
+    exit_option()
 
 
 def display_board_guide():
@@ -381,7 +386,7 @@ def display_board_guide():
     Displays a sample board with numbered cells, so the user knows which
     number to input for each cell.
     """
-    print("""Use this board as a guide when making guesses. Each number
+    print("""\nUse this board as a guide when making guesses. Each number
 corresponds to a cell on the board.\n""")
     print(" 1 | 2 | 3 ")
     print(" ---------")
