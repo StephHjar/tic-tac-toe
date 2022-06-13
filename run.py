@@ -40,9 +40,11 @@ class Board():
         self.cells = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
     def display(self):
-        """Displays the game board, with numbers in each cell so the
+        """
+        Displays the game board, with numbers in each cell so the
         player knows which cell corresponds to which number when making
-        guesses."""
+        guesses.
+        """
         print("Here is the active game board:\n")
         print(f" {self.cells[0]} | {self.cells[1]} | {self.cells[2]} ")
         print(" ---------")
@@ -52,8 +54,10 @@ class Board():
 
 
 class Player():
-    """Player class. This determines whether the player or computer is playing
-    Xs or Os."""
+    """
+    Player class. This determines whether the player or computer is playing
+    Xs or Os.
+    """
 
     def __init__(self, turn):
         self.turn = turn
@@ -78,8 +82,9 @@ def display_header():
 
 
 def get_username():
-    """Ask the player to provide a username,
-    and check whether the input is valid."""
+    """
+    Ask the player to provide a username, and check whether the input is valid.
+    """
     while True:
         username = input("Please enter a username between 3 and 8 letters:\n")
         if validate_username(username):
@@ -93,8 +98,10 @@ def get_username():
 
 
 def validate_username(username):
-    """Check the chosen username to make sure it meets all criteria:
-    8 characters or less, using only letters."""
+    """
+    Check the chosen username to make sure it meets all criteria: 8 characters
+    or less, using only letters.
+    """
     try:
         if username.isalpha() is False:
             raise ValueError(
@@ -115,9 +122,11 @@ Please use between 3 and 8 letters."""
 
 
 def display_main_menu():
-    """Display the menu options to the player after they enter a username.
+    """
+    Display the menu options to the player after they enter a username.
     They can choose to read the instructions, start a new game, or view the
-    high score board."""
+    high score board.
+    """
     print("""\nWhat would you like to do now?\n
     1 - Read Instructions
     2 - Start a New Game
@@ -127,9 +136,11 @@ def display_main_menu():
 
 
 def choose_menu_option(entry):
-    """Respond to the player's choice in the welcome menu. Validate that the
+    """
+    Respond to the player's choice in the welcome menu. Validate that the
     input is one of the available options, and call the correct function based
-    on the user's choice."""
+    on the user's choice.
+    """
     while True:
         if validate_num(entry):
             if int(entry) == 1:
@@ -150,8 +161,10 @@ def choose_menu_option(entry):
 
 
 def validate_num(num):
-    """Check that a user's numerical entry is a valid number. Return relevant
-    error messages if not."""
+    """
+    Check that a user's numerical entry is a valid number. Return relevant
+    error messages if not.
+    """
     try:
         if num.isdigit() is False:
             raise TypeError(f"""You entered '{num}'.
@@ -164,8 +177,10 @@ Please enter a valid number.""")
 
 
 def show_instructions():
-    """Display instructions showing how to play tic-tac-toe, and give the user
-    the option to exit the instructions when they are finished."""
+    """
+    Display instructions showing how to play tic-tac-toe, and give the user
+    the option to exit the instructions when they are finished.
+    """
     print("""INSTRUCTIONS:\n
     The objective of the game is to get 3 Xs or 3 Os in a row, on a 3x3
     grid.\n
@@ -186,16 +201,20 @@ def show_instructions():
 
 
 def show_high_scores():
-    """Display the high score board to the user, and gives them the option to
-    exit to the main menu."""
+    """
+    Display the high score board to the user, and gives them the option to
+    exit to the main menu.
+    """
     print("\nHIGH SCORES\n")
     print(tabulate(high_score_data[0:6:1], headers=["Username", "Score"]))
     exit_option()
 
 
 def exit_option():
-    """Shows the user the option to exit the current page and return to the
-    main menu."""
+    """
+    Shows the user the option to exit the current page and return to the
+    main menu.
+    """
     while True:
         exit_choice = input(str("\nExit to main menu? Y/N\n"))
         if exit_choice.lower() == "y":
@@ -213,9 +232,11 @@ def exit_option():
 
 
 def validate_exit(choice):
-    """Validate a user's entry when they are given the option to exit and
+    """
+    Validate a user's entry when they are given the option to exit and
     return to a previous screen (from the instructions and high score pages).
-    Display an error message if anything other than Y or N is entered."""
+    Display an error message if anything other than Y or N is entered.
+    """
     try:
         if choice.lower() != "y" or choice.lower() != "n":
             raise ValueError(f"""\nYou entered '{choice}'. Please enter either Y
@@ -227,16 +248,20 @@ def validate_exit(choice):
 
 
 def new_screen():
-    """Clear the screen and display the header whenever a player loads a new
+    """
+    Clear the screen and display the header whenever a player loads a new
     screen in the terminal (i.e. instructions page, high score board, starting
-    a new game)."""
+    a new game).
+    """
     clear()
     display_header()
 
 
 def start_new_game():
-    """Starts a new game of tic-tac-toe. Resets the player and computer scores
-    to 0 and displays a new game board."""
+    """
+    Starts a new game of tic-tac-toe. Resets the player and computer scores
+    to 0 and displays a new game board.
+    """
     new_screen()
     display_board_guide()
     board = Board()
@@ -246,8 +271,10 @@ def start_new_game():
 
 
 def choose_player():
-    """Randomly assigns X or O to the player or the computer when a new game
-    is run."""
+    """
+    Randomly assigns X or O to the player or the computer when a new game
+    is run.
+    """
     player_human = Player(random.choice(["X", "O"]))
     if player_human.turn == "X":
         player_computer = Player("O")
@@ -257,12 +284,14 @@ def choose_player():
 as {player_computer.turn}. X goes first.""")
     if player_human.turn == "X":
         take_human_turn(player_human.turn)
-    print("Computer will go first.")
+    take_computer_turn(player_computer.turn)
 
 
 def take_human_turn(value):
-    """Prompts the player to take their turn, by choosing a cell on the board
-    to place their X or O."""
+    """
+    Prompts the player to take their turn, by choosing a cell on the board
+    to place their X or O.
+    """
     print("\nIt's your turn!")
     while True:
         cell_choice = input(f"""\nWhere would you like to place your
@@ -271,11 +300,22 @@ def take_human_turn(value):
             if int(cell_choice) < 1 or int(cell_choice) > 9:
                 print(f"""\nYou entered {cell_choice}. Please enter a number
 between 1 - 9.""")
+                continue
+
+
+def take_computer_turn(value):
+    """
+    Makes the computer take its turn, by placing an X or O in a random free
+    cell on the board.
+    """
+    print(f"Computer will play as {value}.")
 
 
 def display_board_guide():
-    """Displays a sample board with numbered cells, so the user knows which
-    number to input for each cell."""
+    """
+    Displays a sample board with numbered cells, so the user knows which
+    number to input for each cell.
+    """
     print("""Use this board as a guide when making guesses. Each number
 corresponds to a cell on the board.\n""")
     print(" 1 | 2 | 3 ")
@@ -286,7 +326,9 @@ corresponds to a cell on the board.\n""")
 
 
 def run():
-    """Run functions needed to start the program."""
+    """
+    Run functions needed to start the program.
+    """
     display_header()
     get_username()
 
