@@ -216,12 +216,13 @@ def start_new_game():
     class Board():
         """
         Main game board class. This sets the board size, and has methods for
-        adding guesses and printing the board.
+        adding guesses and printing the board. Some of the code used here was
+        modified from TokyoEdtech's Youtube tutorial (credit in README).
         """
 
         def __init__(self):
             self.cells = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-            self.guesses = []
+            self.guesses = []    
         
         def display(self):
             print(f""" {self.cells[0]} | {self.cells[1]} | {self.cells[2]} """)
