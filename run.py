@@ -300,7 +300,8 @@ def take_human_turn(value):
             if int(cell_choice) < 1 or int(cell_choice) > 9:
                 print(f"""\nYou entered {cell_choice}. Please enter a number
 between 1 - 9.""")
-                continue
+            validate_move(cell_choice)
+            guesses.append(cell_choice)
 
 
 def take_computer_turn(value):
@@ -309,6 +310,15 @@ def take_computer_turn(value):
     cell on the board.
     """
     print(f"Computer will play as {value}.")
+
+
+def validate_move(cell):
+    """
+    Checks to make sure the player or computer is making a valid move: i.e.
+    placing their X or O in an empty square.
+    """
+    if cell in guesses:
+        print("This cell is already occupied. Please enter another number.")
 
 
 def display_board_guide():
