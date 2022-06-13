@@ -338,7 +338,12 @@ another number.""")
 
 
 def declare_draw():
-    print("The game has ended in a draw! No points will be awarded. Play again?")
+    """
+    Declares a draw if all cells on the board are filled without declaring a
+    winner.
+    """
+    print("""The game has ended in a draw! No points will be awarded. Play
+again?""")
 
 
 def display_board_guide():
