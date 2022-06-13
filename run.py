@@ -98,17 +98,17 @@ def validate_username(username):
     try:
         if username.isalpha() is False:
             raise ValueError(
-                f"""The username '{username}' contains characters that are not letters.
-                Please only use letters between A - Z."""
+                f"""\nThe username '{username}' contains characters that are not letters.
+Please only use letters between A - Z."""
             )
         if len(username) > 8 or len(username) < 3:
             raise ValueError(
-                f"""This username is {len(username)} characters long.
-                Please use between 3 and 8 letters."""
+                f"""\nThis username is {len(username)} characters long.
+Please use between 3 and 8 letters."""
             )
 
     except ValueError as error:
-        print(f"Invalid username: {error}\n")
+        print(f"\nInvalid username: {error}\n")
         return False
 
     return True
@@ -154,9 +154,10 @@ def validate_num(num):
     error messages if not."""
     try:
         if num.isdigit() is False:
-            raise TypeError("Please enter a valid number.")
+            raise TypeError(f"""You entered '{num}'.
+Please enter a valid number.""")
     except TypeError as error:
-        print(f"\nInvalid entry: {error}\n")
+        print(f"\nInvalid entry: {error}")
         return False
 
     return True
@@ -217,10 +218,10 @@ def validate_exit(choice):
     Display an error message if anything other than Y or N is entered."""
     try:
         if choice.lower() != "y" or choice.lower() != "n":
-            raise ValueError(f"""You entered '{choice}'. Please enter either Y
-            (for yes) or N (for no).""")
+            raise ValueError(f"""\nYou entered '{choice}'. Please enter either Y
+(for yes) or N (for no).""")
     except ValueError as error:
-        print(f"Invalid entry: {error}")
+        print(f"\nInvalid entry: {error}")
         return False
     return True
 
