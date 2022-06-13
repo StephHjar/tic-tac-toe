@@ -319,7 +319,7 @@ The computer will go next...""")
                 take_computer_turn("O")
             else:
                 take_computer_turn("X")
-
+        else
 
 def take_computer_turn(player):
     """
@@ -328,7 +328,7 @@ def take_computer_turn(player):
     """
     while True:
         cell_choice = random.randint(1, 9)
-        while cell_choice in guesses:
+        while cell_choice in guesses and len(guesses) < 9:
             cell_choice = random.randint(1, 9)
         if validate_move(cell_choice):
             guesses.append(cell_choice)
@@ -341,6 +341,7 @@ Please wait for your turn to begin...""")
                 take_human_turn("O")
             else:
                 take_human_turn("X")
+        else
 
 
 def validate_move(cell):
