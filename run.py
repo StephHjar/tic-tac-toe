@@ -24,6 +24,8 @@ high_scores = SHEET.worksheet('high_scores')
 
 high_score_data = high_scores.get_all_values()
 
+scores = {"computer": 0, "player": 0}
+
 
 def clear():
     """
@@ -150,11 +152,11 @@ def show_instructions():
     exit_option()
 
 
-def start_new_game():
-    """Start a new game of tic-tac-toe by displaying the game board and
-    determining who will play first."""
-    print("let's start a new game!")
-    exit_option()
+# def start_new_game():
+#    """Start a new game of tic-tac-toe by displaying the game board and
+#    determining who will play first."""
+# print("let's start a new game!")
+# exit_option()
 
 
 def show_high_scores():
@@ -204,6 +206,32 @@ def new_screen():
     a new game)."""
     clear()
     display_header()
+
+
+def start_new_game():
+    """Starts a new game of tic-tac-toe. Resets the player and computer scores
+    to 0 and displays a new game board."""
+    new_screen()
+
+    class Board():
+        """
+        Main game board class. This sets the board size, and has methods for
+        adding guesses and printing the board.
+        """
+
+        def __init__(self):
+            self.cells = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+            self.guesses = []
+        
+        def display(self):
+            print(f""" {self.cells[0]} | {self.cells[1]} | {self.cells[2]} """)
+            print(" ---------")
+            print(f""" {self.cells[3]} | {self.cells[4]} | {self.cells[5]} """)
+            print(" ---------")
+            print(f""" {self.cells[6]} | {self.cells[7]} | {self.cells[8]} """)
+
+    board = Board()
+    board.display()
 
 
 def run():
