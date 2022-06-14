@@ -365,8 +365,15 @@ def check_result():
     """
     Checks for a win, loss, or draw before starting a new move.
     """
-    if len(guesses) >= 9:
+    if board.cells.count(board.cells[0]) > 3:
+        print("Someone has won!")
+
+    elif len(guesses) >= 9:
         declare_draw()
+
+
+# def all_same(wins):
+#     return all(x == wins[0] for x in wins)
 
 
 def validate_move(cell):
