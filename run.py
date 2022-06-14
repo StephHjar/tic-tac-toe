@@ -27,10 +27,6 @@ high_score_data = high_scores.get_all_values()
 
 scores = {"computer": 0, "player": 0}
 guesses = []
-possible_wins = [
-                [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7],
-                [2, 5, 8], [0, 4, 8], [2, 4, 6]
-                ]
 
 
 class Board():
@@ -62,6 +58,36 @@ class Board():
         O).
         """
         self.cells[cell_no] = player
+
+    def is_winner(self, player):
+        """
+        Read the board to determine when there is a winner (3 of the same
+        symbol in a row).
+        """
+        if (self.cells[0] == player and self.cells[1] == player and
+                self.cells[2] == player):
+            return True
+        if (self.cells[3] == player and self.cells[4] == player and
+                self.cells[5] == player):
+            return True
+        if (self.cells[6] == player and self.cells[7] == player and
+                self.cells[8] == player):
+            return True
+        if (self.cells[0] == player and self.cells[3] == player and
+                self.cells[6] == player):
+            return True
+        if (self.cells[1] == player and self.cells[4] == player and
+                self.cells[7] == player):
+            return True
+        if (self.cells[2] == player and self.cells[5] == player and
+                self.cells[8] == player):
+            return True
+        if (self.cells[0] == player and self.cells[4] == player and
+                self.cells[8] == player):
+            return True
+        if (self.cells[2] == player and self.cells[4] == player and
+                self.cells[6] == player):
+            return True
 
 
 board = Board()
@@ -318,8 +344,6 @@ def take_human_turn(player):
     to place their X or O. Triggers validation workflow to ensure the entry is
     valid.
     """
-    if len(guesses) >= 5:
-        check_result()
     print("\nIt's your turn!")
     while True:
         cell_choice = input(f"""\nWhere would you like to place your
@@ -331,6 +355,8 @@ def take_human_turn(player):
                 print(f"""\nOkay! You have chosen cell {cell_choice}.\n
 Please wait...""")
                 time.sleep(2)
+                if len(guesses) >= 5:
+                    check_result(player)
                 if player == "X":
                     take_computer_turn("O")
                 else:
@@ -342,8 +368,6 @@ def take_computer_turn(player):
     Makes the computer take its turn, by placing an X or O in a random free
     cell on the board.
     """
-    if len(guesses) >= 5:
-        check_result()
     while True:
         cell_choice = random.randint(1, 9)
         while cell_choice in guesses and len(guesses) < 9:
@@ -355,27 +379,27 @@ def take_computer_turn(player):
 {cell_choice}.\n
 Please wait...""")
             time.sleep(1)
+            if len(guesses) >= 5:
+                check_result(player)
             if player == "X":
                 take_human_turn("O")
             else:
                 take_human_turn("X")
 
 
-def check_result():
+def check_result(playing_as):
     """
-    Checks for a win, loss, or draw before starting a new move.
+    Checks for a win, loss, or draw before starting a new move. The
+    board.is_winner code was adapted from TokyoEdtech's YouTube tutorial
+    (credit in README).
     """
-    for i in possible_wins:
-        if len(set(board.cells(possible_wins[i][i]))) == 1:
-            print("Someone has won!")
-            exit_option()
+
+    if board.is_winner(playing_as):
+        print(f"\n{playing_as} wins!")
+        exit_option()
 
     if len(guesses) >= 9:
         declare_draw()
-
-
-# def all_same(wins):
-#     return all(x == wins[0] for x in wins)
 
 
 def validate_move(cell):
