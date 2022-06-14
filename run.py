@@ -28,8 +28,8 @@ high_score_data = high_scores.get_all_values()
 scores = {"computer": 0, "player": 0}
 guesses = []
 possible_wins = [
-                [1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8],
-                [3, 6, 9], [1, 5, 9], [3, 5, 7]
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7],
+                [2, 5, 8], [0, 4, 8], [2, 4, 6]
                 ]
 
 
@@ -365,10 +365,12 @@ def check_result():
     """
     Checks for a win, loss, or draw before starting a new move.
     """
-    if board.cells.count(board.cells[0]) > 3:
-        print("Someone has won!")
+    for i in possible_wins:
+        if len(set(board.cells(possible_wins[i][i]))) == 1:
+            print("Someone has won!")
+            exit_option()
 
-    elif len(guesses) >= 9:
+    if len(guesses) >= 9:
         declare_draw()
 
 
