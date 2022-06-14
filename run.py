@@ -312,7 +312,8 @@ def take_human_turn(player):
     to place their X or O. Triggers validation workflow to ensure the entry is
     valid.
     """
-    check_result()
+    if len(guesses) >= 5:
+        check_result()
     print("\nIt's your turn!")
     while True:
         cell_choice = input(f"""\nWhere would you like to place your
@@ -335,7 +336,8 @@ def take_computer_turn(player):
     Makes the computer take its turn, by placing an X or O in a random free
     cell on the board.
     """
-    check_result()
+    if len(guesses) >= 5:
+        check_result()
     while True:
         cell_choice = random.randint(1, 9)
         while cell_choice in guesses and len(guesses) < 9:
