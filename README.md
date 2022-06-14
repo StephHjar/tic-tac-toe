@@ -12,13 +12,31 @@ I created a flowchart to determine the logic of the game before starting to code
 This also helped with planning input validation, and the options presented to the user when the program is initalized (play game, view instructions, and view the high score board).
 ![Flowchart](assets/images/README/tictactoe_flowchart.png)
 
-## Features 
+## User Stories
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so. You will need to explain what value each of the features provides for the user, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+  -   #### First Time Visitor Goals
+
+      1. As a First Time Visitor, I want to understand how to play Tic-Tac-Toe.
+      2. As a First Time Visitor, I want to understand how to navigate the program to find the instructions, the high score board, and how to start a new game.
+      3. As a First Time Visitor, I want to understand why I receive error messages and how to resolve them.
+      4. As a First Time Visitor, I want to easily start a new game and play Tic-Tac-Toe against the computer.
+
+  -   #### Returning Visitor Goals
+
+      1. As a Returning Visitor, I want to view the high score board to see what has changed since I last played.
+      2. As a Returning Visitor, I want to start a new round of Tic-Tac-Toe games against the computer, so I can update my own high score.
+      3. As a Returning Visitor, I want my high scores to be associated with the same username. 
+
+  -   #### Frequent User Goals
+      1. As a Frequent User, I want to see my previous scores on the high score board. 
+
+## Features 
 
 ### Existing Features
 
 ### Features Left to Implement
+
+  - The option to play against another human opponent in person. Right now, the only option is to play against the computer, and the program will randomly decide who goes first. In the future there will be the option for two players to play against each other, with the option to choose who goes first.
 
 ## Testing 
 
