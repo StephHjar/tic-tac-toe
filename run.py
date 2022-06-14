@@ -273,12 +273,18 @@ def start_new_game():
     new_screen()
     guesses.clear()
     display_board_guide()
-    # new_board.cells = [" " for i in new_board.cells]
-    for i in range(len(board.cells)):
-        board.update_cell(i, " ")
+    clear_board()
     board.display()
     choose_player()
     exit_option()
+
+
+def clear_board():
+    """
+    Clears the cells in the Board class when starting a new game.
+    """
+    for i in range(len(board.cells)):
+        board.update_cell(i, " ")
 
 
 def choose_player():
