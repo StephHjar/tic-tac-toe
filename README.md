@@ -34,6 +34,52 @@ This also helped with planning input validation, and the options presented to th
 
 ### Existing Features
 
+  - A class for the game board:
+  ```
+  class Board():
+    """
+    Main game board class. This sets the board size, and has methods for
+    adding guesses and printing the board. Some of the code used here was
+    modified from TokyoEdtech's Youtube tutorial (credit in README).
+    """
+
+    def __init__(self):
+        self.cells = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+
+    def display(self):
+        """
+        Displays the game board, with numbers in each cell so the
+        player knows which cell corresponds to which number when making
+        guesses.
+        """
+        print("Here is the active game board:\n")
+        print(f" {self.cells[0]} | {self.cells[1]} | {self.cells[2]} ")
+        print(" ---------")
+        print(f" {self.cells[3]} | {self.cells[4]} | {self.cells[5]} ")
+        print(" ---------")
+        print(f" {self.cells[6]} | {self.cells[7]} | {self.cells[8]} ")
+
+    def update_cell(self, cell_no, player):
+        """
+        Updates a cell in the board with the player or computer's move (X or
+        O).
+        """
+        self.cells[cell_no] = player
+        return self.cells
+  ```
+
+  - A class for the player:
+  ```
+  class Player():
+    """
+    Player class. This determines whether the player or computer is playing
+    Xs or Os.
+    """
+
+    def __init__(self, playing_as):
+        self.playing_as = playing_as
+  ```
+
 ### Features Left to Implement
 
   - The option to play against another human opponent in person. Right now, the only option is to play against the computer, and the program will randomly decide who goes first. In the future there will be the option for two players to play against each other, with the option to choose who goes first.
