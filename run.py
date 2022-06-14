@@ -192,7 +192,9 @@ def show_instructions():
     print("""INSTRUCTIONS:\n
     The objective of the game is to get 3 Xs or 3 Os in a row, on a 3x3
     grid.\n
-    Here is what to expect when you start a new game of Tic-Tac- Toe:\n
+    Here is what to expect when you start a new game of Tic-Tac- Toe:\n""")
+    input("Press enter to continue...\n")
+    print("""
     1) Either you or the computer will be randomly chosen to make the
     first move. If you go first, you will be assigned the letter X. If you
     go second, you will be assigned the letter O.\n
