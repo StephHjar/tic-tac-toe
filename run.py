@@ -327,6 +327,7 @@ def take_computer_turn(player):
     Makes the computer take its turn, by placing an X or O in a random free
     cell on the board.
     """
+    check_result()
     while True:
         cell_choice = random.randint(1, 9)
         while cell_choice in guesses and len(guesses) < 9:
