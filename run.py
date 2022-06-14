@@ -304,6 +304,7 @@ def take_human_turn(player):
     to place their X or O. Triggers validation workflow to ensure the entry is
     valid.
     """
+    check_result()
     print("\nIt's your turn!")
     while True:
         cell_choice = input(f"""\nWhere would you like to place your
@@ -315,11 +316,11 @@ def take_human_turn(player):
                 print(f"""\nOkay! You have chosen cell {cell_choice}.\n
 The computer will go next...""")
                 time.sleep(2)
-            if player == "X":
-                take_computer_turn("O")
-            else:
-                take_computer_turn("X")
-        else
+                if player == "X":
+                    take_computer_turn("O")
+                else:
+                    take_computer_turn("X")
+
 
 def take_computer_turn(player):
     """
@@ -331,17 +332,24 @@ def take_computer_turn(player):
         while cell_choice in guesses and len(guesses) < 9:
             cell_choice = random.randint(1, 9)
         if validate_move(cell_choice):
-            guesses.append(cell_choice)
+            guesses.append(int(cell_choice))
             update_board(cell_choice, player)
             print(f"""\nComputer has chosen to place their {player} in cell
 {cell_choice}.\n
-Please wait for your turn to begin...""")
-            time.sleep(3)
+Please wait...""")
+            time.sleep(1)
             if player == "X":
                 take_human_turn("O")
             else:
                 take_human_turn("X")
-        else
+
+
+def check_result():
+    """
+    Checks for a win, loss, or draw before starting a new move.
+    """
+    if len(guesses) >= 9:
+        declare_draw()
 
 
 def validate_move(cell):
@@ -356,8 +364,6 @@ between 1 - 9.""")
         if int(cell) in guesses:
             raise ValueError("""This cell is already occupied. Please enter
 another number.""")
-        if len(guesses) > 9:
-            declare_draw()
     except ValueError as error:
         print(f"\nInvalid entry: {error}")
         return False
