@@ -58,7 +58,6 @@ class Board():
         O).
         """
         self.cells[cell_no] = player
-        return self.cells
 
 
 board = Board()
@@ -272,8 +271,12 @@ def start_new_game():
     to 0 and displays a new game board.
     """
     new_screen()
-    display_board_guide()
     new_board = Board()
+    guesses.clear()
+    display_board_guide()
+    # new_board.cells = [" " for i in new_board.cells]
+    for i in range(len(new_board.cells)):
+        new_board.update_cell(i, " ")
     new_board.display()
     choose_player()
     exit_option()
