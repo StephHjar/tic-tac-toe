@@ -314,7 +314,7 @@ def take_human_turn(player):
                 guesses.append(int(cell_choice))
                 update_board(cell_choice, player)
                 print(f"""\nOkay! You have chosen cell {cell_choice}.\n
-The computer will go next...""")
+Please wait...""")
                 time.sleep(2)
                 if player == "X":
                     take_computer_turn("O")
