@@ -397,7 +397,7 @@ def check_result(playing_as, winner):
     """
 
     if board.is_winner(playing_as):
-        print(f"\n{winner} won!")
+        print(f"\n{winner} won!\n")
         update_score(winner)
         exit_option()
 
@@ -412,10 +412,18 @@ def update_score(winner):
     """
     if winner == "You":
         scores['player'] += 1
-        print(scores)
     else:
         scores['computer'] += 1
-        print(scores)
+    display_score()
+
+
+def display_score():
+    """
+    Displays the overall score for the player and the computer after each
+    round of tic-tac-toe.
+    """
+    print("You have won " + str(scores['player']) + """ game(s). The computer
+has won """ + str(scores['computer']) + " game(s).")
 
 
 def validate_move(cell):
