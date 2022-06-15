@@ -495,8 +495,7 @@ def high_score_option():
         high_score_choice = input(str("""\nOkay! Would you like to save your score to
 the high score board? Y/N\n"""))
         if high_score_choice.lower() == "y":
-            print("\nOkay! Saving your high score...")
-            exit_option()
+            save_high_score()
         if high_score_choice.lower() == "n":
             print("""\nOkay! We will not save your high score. I hope you enjoyed
 playing Tic-Tac-Toe! Press the orange 'Run Program' button above if you would
@@ -505,6 +504,15 @@ like to start over. Otherwise:""")
         validate_exit(high_score_choice)
 
     return high_score_choice
+
+
+def save_high_score():
+    """
+    Saves the player's high score to the 'tic_tac_toe_scores' Google Sheet. If
+    their score is in the top 5 highest scores, it will be displayed on the
+    high score screen accessible from the main menu.
+    """
+    print("Saving high score...")
 
 
 def display_board_guide():
