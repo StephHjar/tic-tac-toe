@@ -506,6 +506,7 @@ the high score board? Y/N\n"""))
         if high_score_choice.lower() == "y":
             save_high_score()
         if high_score_choice.lower() == "n":
+            print("Okay! Your score will not be recorded.\n")
             end_game()
         validate_exit(high_score_choice)
 
@@ -528,11 +529,11 @@ def save_high_score():
 
 def end_game():
     """
-    Ends gameplay with instructions on how to restart the program, and the option to return to the main menu.
+    Ends gameplay with instructions on how to restart the program, and the
+    option to return to the main menu.
     """
-    print("""\nOkay! We will not save your high score. I hope you enjoyed
-playing Tic-Tac-Toe! Press the orange 'Run Program' button above if you would
-like to start over. Otherwise:""")
+    print("""I hope you enjoyed playing Tic-Tac-Toe! Press the orange 'Run Program'
+button above if you would like to start over. Otherwise:\n""")
     exit_option()
 
 
