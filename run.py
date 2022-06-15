@@ -330,8 +330,8 @@ def choose_player():
     else:
         player_computer = Player("X")
     print(f"""\nYou will play as {player_human.playing_as}! The computer will play
-as {player_computer.playing_as}. X goes first.""")
-    time.sleep(2)
+as {player_computer.playing_as}. X goes first.\n""")
+    input("Press enter to start the game...\n")
     if player_human.playing_as == "X":
         take_human_turn(player_human.playing_as)
     if player_human.playing_as == "O":
@@ -353,7 +353,7 @@ def take_human_turn(player):
                 guesses.append(int(cell_choice))
                 update_board(cell_choice, player)
                 print(f"""\nOkay! You have chosen cell {cell_choice}.\n
-Please wait...""")
+Please wait...\n""")
                 time.sleep(2)
                 if len(guesses) >= 5:
                     winner = "You"
@@ -423,7 +423,7 @@ def display_score():
     round of tic-tac-toe.
     """
     print("You have won " + str(scores['player']) + """ game(s). The computer
-has won """ + str(scores['computer']) + " game(s).")
+has won """ + str(scores['computer']) + " game(s).\n")
 
 
 def validate_move(cell):
