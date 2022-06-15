@@ -463,6 +463,7 @@ def declare_draw():
     winner.
     """
     print("""The game has ended in a draw! No points will be awarded.\n""")
+    display_score()
     new_game_option()
 
 
