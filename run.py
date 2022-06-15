@@ -479,11 +479,31 @@ def new_game_option():
             start_new_game()
             break
         if new_game_choice.lower() == "n":
-            print("Okay! Would you like to save your high score?")
-            continue
+            high_score_option()
         validate_exit(new_game_choice)
 
     return new_game_choice
+
+
+def high_score_option():
+    """
+    Gives the player the option to save their score to the high score board
+    when they are finished playing.
+    """
+    while True:
+        high_score_choice = input(str("""\nOkay! Would you like to save your score to
+the high score board? Y/N\n"""))
+        if high_score_choice.lower() == "y":
+            print("Okay! Saving your high score...")
+            exit_option()
+        if high_score_choice.lower() == "n":
+            print("""\nOkay! We will not save your high score. I hope you enjoyed
+playing Tic-Tac-Toe! Press the orange 'Run Program' button above if you would
+like to start over. Otherwise:""")
+            exit_option()
+        validate_exit(high_score_choice)
+
+    return high_score_choice
 
 
 def display_board_guide():
