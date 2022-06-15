@@ -207,9 +207,9 @@ def validate_num(num):
     try:
         if num.isdigit() is False:
             raise TypeError(f"""You entered '{num}'.
-Please enter a valid number.""")
+Please enter a valid number.\n""")
     except TypeError as error:
-        print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: {error}")
+        print(f"{Fore.YELLOW}{Style.BRIGHT}Invalid entry: {error}")
         return False
 
     return True
@@ -225,7 +225,7 @@ def show_instructions():
     grid.\n
     Here is what to expect when you start a new game of Tic-Tac- Toe:\n""")
     input("Press enter to continue...\n")
-    print("""
+    print("""STEPS:\n
     1) Either you or the computer will be randomly chosen to make the
     first move. If you go first, you will be assigned the letter X. If you
     go second, you will be assigned the letter O.\n
@@ -248,6 +248,7 @@ def show_high_scores():
     """
     print("\nHIGH SCORES\n")
     print(tabulate(high_score_data[0:6:1], headers=["Username", "Score"]))
+    print(" ")
     exit_option()
 
 
@@ -257,15 +258,15 @@ def exit_option():
     main menu.
     """
     while True:
-        exit_choice = input(str("\nExit to main menu? Y/N\n"))
+        exit_choice = input(str("Exit to main menu? Y/N\n"))
         if exit_choice.lower() == "y":
-            print("Okay! Exiting to the main menu...")
+            print("\nOkay! Exiting to the main menu...")
             time.sleep(1)
             new_screen()
             display_main_menu()
             break
         if exit_choice.lower() == "n":
-            print("Okay! Let me know when you are ready to exit.")
+            print("\nOkay! Let me know when you are ready to exit.\n")
             continue
         validate_exit(exit_choice)
 
@@ -281,7 +282,7 @@ def validate_exit(choice):
     try:
         if choice.lower() != "y" or choice.lower() != "n":
             raise ValueError(f"""\nYou entered '{choice}'. Please enter either Y
-(for yes) or N (for no).""")
+(for yes) or N (for no).\n""")
     except ValueError as error:
         print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: {error}")
         return False
