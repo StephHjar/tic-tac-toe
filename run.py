@@ -50,7 +50,7 @@ class Board():
         print(" ---------")
         print(f" {self.cells[3]} | {self.cells[4]} | {self.cells[5]} ")
         print(" ---------")
-        print(f" {self.cells[6]} | {self.cells[7]} | {self.cells[8]} ")
+        print(f" {self.cells[6]} | {self.cells[7]} | {self.cells[8]} \n")
 
     def update_cell(self, cell_no, player):
         """
@@ -330,7 +330,7 @@ def choose_player():
         player_computer = Player("O")
     else:
         player_computer = Player("X")
-    print(f"""\nYou will play as {player_human.playing_as}! The computer will play
+    print(f"""You will play as {player_human.playing_as}! The computer will play
 as {player_computer.playing_as}. X goes first.\n""")
     input("Press enter to start the game...\n")
     if player_human.playing_as == "X":
@@ -345,15 +345,15 @@ def take_human_turn(player):
     to place their X or O. Triggers validation workflow to ensure the entry is
     valid.
     """
-    print("\nIt's your turn!")
+    print("It's your turn!\n")
     while True:
-        cell_choice = input(f"""\nWhere would you like to place your
+        cell_choice = input(f"""Where would you like to place your
 {player}?\n""")
         if validate_num(cell_choice):
             if validate_move(cell_choice):
                 guesses.append(int(cell_choice))
                 update_board(cell_choice, player)
-                print(f"""\nOkay! You have chosen cell {cell_choice}.\n
+                print(f"""Okay! You have chosen cell {cell_choice}.\n
 Please wait...\n""")
                 time.sleep(2)
                 if len(guesses) >= 5:
@@ -377,9 +377,9 @@ def take_computer_turn(player):
         if validate_move(cell_choice):
             guesses.append(int(cell_choice))
             update_board(cell_choice, player)
-            print(f"""\nComputer has chosen to place their {player} in cell
+            print(f"""Computer has chosen to place their {player} in cell
 {cell_choice}.\n
-Please wait...""")
+Please wait...\n""")
             time.sleep(1)
             if len(guesses) >= 5:
                 winner = "The computer"
@@ -398,7 +398,7 @@ def check_result(playing_as, winner):
     """
 
     if board.is_winner(playing_as):
-        print(f"\n{winner} won!\n")
+        print(f"{winner} won!\n")
         update_score(winner)
         exit_option()
 
@@ -435,12 +435,13 @@ def validate_move(cell):
     try:
         if int(cell) < 1 or int(cell) > 9:
             raise ValueError(f"""\nYou entered {cell}. Please enter a number
-between 1 - 9.""")
+between 1 - 9.\n""")
         if int(cell) in guesses:
             raise ValueError("""This cell is already occupied. Please enter
-another number.""")
+another number.\n""")
     except ValueError as error:
         print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: {error}")
+        board.display()
         return False
     return True
 
