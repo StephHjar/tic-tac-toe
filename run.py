@@ -506,10 +506,7 @@ the high score board? Y/N\n"""))
         if high_score_choice.lower() == "y":
             save_high_score()
         if high_score_choice.lower() == "n":
-            print("""\nOkay! We will not save your high score. I hope you enjoyed
-playing Tic-Tac-Toe! Press the orange 'Run Program' button above if you would
-like to start over. Otherwise:""")
-            exit_option()
+            end_game()
         validate_exit(high_score_choice)
 
     return high_score_choice
@@ -526,10 +523,17 @@ def save_high_score():
     if validate_username(username):
         print("\nOkay! Updating high score board...\n")
         worksheet_to_update.append_row([str(username), int(scores['player'])])
-        print("""I hope you enjoyed
+        end_game()
+
+
+def end_game():
+    """
+    Ends gameplay with instructions on how to restart the program, and the option to return to the main menu.
+    """
+    print("""\nOkay! We will not save your high score. I hope you enjoyed
 playing Tic-Tac-Toe! Press the orange 'Run Program' button above if you would
 like to start over. Otherwise:""")
-        exit_option()
+    exit_option()
 
 
 def display_board_guide():
