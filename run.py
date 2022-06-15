@@ -356,7 +356,8 @@ def take_human_turn(player):
 Please wait...""")
                 time.sleep(2)
                 if len(guesses) >= 5:
-                    check_result(player)
+                    winner = "You"
+                    check_result(player, winner)
                 if player == "X":
                     take_computer_turn("O")
                 else:
@@ -380,14 +381,15 @@ def take_computer_turn(player):
 Please wait...""")
             time.sleep(1)
             if len(guesses) >= 5:
-                check_result(player)
+                winner = "The computer"
+                check_result(player, winner)
             if player == "X":
                 take_human_turn("O")
             else:
                 take_human_turn("X")
 
 
-def check_result(playing_as):
+def check_result(playing_as, winner):
     """
     Checks for a win, loss, or draw before starting a new move. The
     board.is_winner code was adapted from TokyoEdtech's YouTube tutorial
@@ -395,7 +397,7 @@ def check_result(playing_as):
     """
 
     if board.is_winner(playing_as):
-        print(f"\n{playing_as} wins!")
+        print(f"\n{winner} won!")
         exit_option()
 
     if len(guesses) >= 9:
