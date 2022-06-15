@@ -153,7 +153,7 @@ Please use between 3 and 8 letters."""
             )
 
     except ValueError as error:
-        print(f"\nInvalid username: {error}\n")
+        print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid username: {error}\n")
         return False
 
     return True
@@ -193,7 +193,8 @@ def choose_menu_option(entry):
                 new_screen()
                 show_high_scores()
                 break
-            print("\nInvalid entry: Please enter a number between 1 - 3.")
+            print(f"""{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: Please enter a
+number between 1 - 3.""")
         display_main_menu()
         break
 
@@ -208,7 +209,7 @@ def validate_num(num):
             raise TypeError(f"""You entered '{num}'.
 Please enter a valid number.""")
     except TypeError as error:
-        print(f"\nInvalid entry: {error}")
+        print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: {error}")
         return False
 
     return True
@@ -282,7 +283,7 @@ def validate_exit(choice):
             raise ValueError(f"""\nYou entered '{choice}'. Please enter either Y
 (for yes) or N (for no).""")
     except ValueError as error:
-        print(f"\nInvalid entry: {error}")
+        print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: {error}")
         return False
     return True
 
@@ -439,7 +440,7 @@ between 1 - 9.""")
             raise ValueError("""This cell is already occupied. Please enter
 another number.""")
     except ValueError as error:
-        print(f"\nInvalid entry: {error}")
+        print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: {error}")
         return False
     return True
 
