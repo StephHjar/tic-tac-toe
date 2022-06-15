@@ -400,7 +400,7 @@ def check_result(playing_as, winner):
     if board.is_winner(playing_as):
         print(f"{winner} won!\n")
         update_score(winner)
-        exit_option()
+        new_game_option()
 
     if len(guesses) >= 9:
         declare_draw()
@@ -464,7 +464,26 @@ def declare_draw():
     """
     print("""The game has ended in a draw! No points will be awarded. Play
 again?""")
-    exit_option()
+    new_game_option()
+
+
+def new_game_option():
+    """
+    Gives the player the option to start a new game, after a win, loss, or
+    draw.
+    """
+    while True:
+        new_game_choice = input(str("Start a new game? Y/N\n"))
+        if new_game_choice.lower() == "y":
+            print("Okay! Starting a new game...")
+            start_new_game()
+            break
+        if new_game_choice.lower() == "n":
+            print("Okay! Would you like to save your high score?")
+            continue
+        validate_exit(new_game_choice)
+
+    return new_game_choice
 
 
 def display_board_guide():
