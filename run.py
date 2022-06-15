@@ -21,7 +21,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('tic_tac_toe_scores')
 
-high_scores = SHEET.worksheet('high_scores')
+high_scores = SHEET.worksheet("high_scores_unsorted")
 
 high_score_data = high_scores.get_all_values()
 
@@ -119,53 +119,6 @@ def display_header():
     ██    ██ ██             ██    ██   ██ ██             ██    ██    ██ ██
     ██    ██  ██████        ██    ██   ██  ██████        ██     ██████  ███████
    """)
-
-
-def get_username():
-    """
-    Ask the player to provide a username, and check whether the input is valid.
-    """
-    while True:
-        username = input("Please enter a username between 3 and 8 letters:\n")
-        if validate_username(username):
-            confirm_username(username)
-            clear()
-            print("\nHello, " + str(username) + "! Let's get ready to play!\n")
-            break
-
-        return username
-
-
-def validate_username(username):
-    """
-    Check the chosen username to make sure it meets all criteria: 8 characters
-    or less, using only letters.
-    """
-    try:
-        if username.isalpha() is False:
-            raise ValueError(
-                f"""\nThe username '{username}' contains characters that are not letters.
-Please only use letters between A - Z."""
-            )
-        if len(username) > 8 or len(username) < 3:
-            raise ValueError(
-                f"""\nThis username is {len(username)} characters long.
-Please use between 3 and 8 letters."""
-            )
-
-    except ValueError as error:
-        print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid username: {error}\n")
-        return False
-
-    return True
-
-
-def confirm_username(username):
-    """
-    Returns the username that the player entered, to be used in the high score
-    board.
-    """
-    return username
 
 
 def display_main_menu():
@@ -519,12 +472,48 @@ def save_high_score():
     their score is in the top 5 highest scores, it will be displayed on the
     high score screen accessible from the main menu.
     """
-    worksheet_to_update = SHEET.worksheet("high_scores_unsorted")
-    username = input("\nPlease confirm the username you would like to use:\n")
-    if validate_username(username):
+    while True:
+        high_scores.append_row([str(get_username()), int(scores['player'])])
         print("\nOkay! Updating high score board...\n")
-        worksheet_to_update.append_row([str(username), int(scores['player'])])
+        time.sleep(2)
         end_game()
+
+
+def get_username():
+    """
+    Ask the player to provide a username, and check whether the input is valid.
+    """
+    while True:
+        username = input("""\nPlease enter a username between 3 and 8
+letters:\n""")
+        if validate_username(username):
+            break
+
+    return username
+
+
+def validate_username(username):
+    """
+    Check the chosen username to make sure it meets all criteria: 8 characters
+    or less, using only letters.
+    """
+    try:
+        if username.isalpha() is False:
+            raise ValueError(
+                f"""\nThe username '{username}' contains characters that are not letters.
+Please only use letters between A - Z."""
+            )
+        if len(username) > 8 or len(username) < 3:
+            raise ValueError(
+                f"""\nThis username is {len(username)} characters long.
+Please use between 3 and 8 letters."""
+            )
+
+    except ValueError as error:
+        print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid username: {error}")
+        return False
+
+    return True
 
 
 def end_game():
@@ -555,8 +544,6 @@ def main():
     """
     Run functions needed to start the program.
     """
-    display_header()
-    get_username()
     display_header()
     display_main_menu()
 
