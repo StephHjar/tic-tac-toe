@@ -128,11 +128,12 @@ def get_username():
     while True:
         username = input("Please enter a username between 3 and 8 letters:\n")
         if validate_username(username):
+            confirm_username(username)
             clear()
             print("\nHello, " + str(username) + "! Let's get ready to play!\n")
             break
 
-    return username
+        return username
 
 
 def validate_username(username):
@@ -157,6 +158,14 @@ Please use between 3 and 8 letters."""
         return False
 
     return True
+
+
+def confirm_username(username):
+    """
+    Returns the username that the player entered, to be used in the high score
+    board.
+    """
+    return username
 
 
 def display_main_menu():
@@ -512,7 +521,15 @@ def save_high_score():
     their score is in the top 5 highest scores, it will be displayed on the
     high score screen accessible from the main menu.
     """
-    print("Saving high score...")
+    worksheet_to_update = SHEET.worksheet("high_scores_unsorted")
+    username = input("\nPlease confirm the username you would like to use:\n")
+    if validate_username(username):
+        print("\nOkay! Updating high score board...\n")
+        worksheet_to_update.append_row([str(username), int(scores['player'])])
+        print("""I hope you enjoyed
+playing Tic-Tac-Toe! Press the orange 'Run Program' button above if you would
+like to start over. Otherwise:""")
+        exit_option()
 
 
 def display_board_guide():
