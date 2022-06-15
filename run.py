@@ -462,8 +462,7 @@ def declare_draw():
     Declares a draw if all cells on the board are filled without declaring a
     winner.
     """
-    print("""The game has ended in a draw! No points will be awarded. Play
-again?""")
+    print("""The game has ended in a draw! No points will be awarded.\n""")
     new_game_option()
 
 
@@ -494,7 +493,7 @@ def high_score_option():
         high_score_choice = input(str("""\nOkay! Would you like to save your score to
 the high score board? Y/N\n"""))
         if high_score_choice.lower() == "y":
-            print("Okay! Saving your high score...")
+            print("\nOkay! Saving your high score...")
             exit_option()
         if high_score_choice.lower() == "n":
             print("""\nOkay! We will not save your high score. I hope you enjoyed
