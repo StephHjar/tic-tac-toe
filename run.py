@@ -398,10 +398,24 @@ def check_result(playing_as, winner):
 
     if board.is_winner(playing_as):
         print(f"\n{winner} won!")
+        update_score(winner)
         exit_option()
 
     if len(guesses) >= 9:
         declare_draw()
+
+
+def update_score(winner):
+    """
+    Increment the score by one for whoever has won the game (human player or
+    computer).
+    """
+    if winner == "You":
+        scores['player'] += 1
+        print(scores)
+    else:
+        scores['computer'] += 1
+        print(scores)
 
 
 def validate_move(cell):
