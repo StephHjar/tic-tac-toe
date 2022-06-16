@@ -33,11 +33,16 @@ This also helped with planning input validation, and the options presented to th
       1. As a Frequent User, I want to see my previous scores on the high score board. 
 
 ## Features
+
+### Existing Features
+
 - __Header__
     - The header serves as a welcome message, and appears at the top of the terminal throughout gameplay and across menu screens. 
     ![Header image](documentation/testing/header.png). I used cyan to make the header stand out and be visually appealing, and also because cyan is accessible to colourblind players on a black background.
 
-### Existing Features
+- __Main Menu__
+    - The main menu appears when the program is run, and the player has the option to return to the main menu from different screens throughout the program. There is a validation function in place to ensure the player selects a valid option between the numbers 1 - 3.
+    ![Main menu](documentation/testing/menu_screen.png)
 
 ### Data Structures
 
