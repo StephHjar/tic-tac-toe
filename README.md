@@ -94,6 +94,62 @@ class Board():
 
   - A password so that the user can log in to their own account, with a unique username. As it is, the program will allow multiple users to use the same username, which could result in two different scores being attributed to the same username on the high score board, but which might represent two different players. Implementing a login system with a unique username & password would prevent this, but this was outside the scope of this project.
 
+### Refactoring
+
+- During development, there was opportunity to refactor the `is_winner()` function. This was the original function: 
+```python
+def is_winner(self, player):
+        """
+        Read the board to determine when there is a winner (3 of the same
+        symbol in a row).
+        """
+        if (self.cells[0] == player and self.cells[1] == player and
+                self.cells[2] == player):
+            return True
+        if (self.cells[3] == player and self.cells[4] == player and
+                self.cells[5] == player):
+            return True
+        if (self.cells[6] == player and self.cells[7] == player and
+                self.cells[8] == player):
+            return True
+        if (self.cells[0] == player and self.cells[3] == player and
+                self.cells[6] == player):
+            return True
+        if (self.cells[1] == player and self.cells[4] == player and
+                self.cells[7] == player):
+            return True
+        if (self.cells[2] == player and self.cells[5] == player and
+                self.cells[8] == player):
+            return True
+        if (self.cells[0] == player and self.cells[4] == player and
+                self.cells[8] == player):
+            return True
+        if (self.cells[2] == player and self.cells[4] == player and
+                self.cells[6] == player):
+            return True
+```
+
+This was refactored using list comprehension and slicing:
+
+```python
+        if all(cell == player for cell in self.cells[0:3]):
+            return True
+        if all(cell == player for cell in self.cells[3:6]):
+            return True
+        if all(cell == player for cell in self.cells[6:9]):
+            return True
+        if all(cell == player for cell in self.cells[0:7:3]):
+            return True
+        if all(cell == player for cell in self.cells[1:8:3]):
+            return True
+        if all(cell == player for cell in self.cells[2:9:3]):
+            return True
+        if all(cell == player for cell in self.cells[0:9:4]):
+            return True
+        if all(cell == player for cell in self.cells[2:7:2]):
+            return True
+```
+
 ## Testing 
 
 Please see the [Testing file](TESTING.md) for manual & validator testing.
