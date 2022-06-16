@@ -59,7 +59,17 @@ This also helped with planning input validation, and the options presented to th
 
 - __Instructions__
     - The instructions screen loads in two parts (prompting the user to press enter) so they do not have to scroll up after the full page has loaded. It begins with a brief description of the objective of the game, and when the user presses enter, it displays a step-by-step walkthrough of how to play the game.
+
     ![Instructions](documentation/testing/instructions.png)
+
+- __Gameplay__
+    - When the game starts, the user is presented with 3 things:
+        1) a sample board, with each cell numbered 1 through 9, so the user understands which number corresponds with which cell;
+        2) the active game board, which is blank when the game starts, and is updated as the player and computer make moves;
+        3) a message confirming which symbol they will play (X or O), which symbol the computer will play, and who will go first. 
+    This makes it easy for the player to understand how to play, and who will make the first move. They are prompted to press enter to start the game when they have finished reading.
+
+    ![Gameplay](documentation/testing/gameplay.png)
 
 ### Data Structures
 
