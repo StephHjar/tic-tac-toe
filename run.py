@@ -66,22 +66,14 @@ class Board():
         function (checking if all elements of a list are the same), credit in
         README.
         """
-        if all(cell == player for cell in self.cells[0:3]):
-            return True
-        if all(cell == player for cell in self.cells[3:6]):
-            return True
-        if all(cell == player for cell in self.cells[6:9]):
-            return True
-        if all(cell == player for cell in self.cells[0:7:3]):
-            return True
-        if all(cell == player for cell in self.cells[1:8:3]):
-            return True
-        if all(cell == player for cell in self.cells[2:9:3]):
-            return True
-        if all(cell == player for cell in self.cells[0:9:4]):
-            return True
-        if all(cell == player for cell in self.cells[2:7:2]):
-            return True
+        wins = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7],
+            [2, 5, 8], [0, 4, 8], [2, 4, 6]
+            ]
+        for win in wins:
+            if (self.cells[win[0]] == player and self.cells[win[1]] == player
+               and self.cells[win[2]] == player):
+                return True
 
 
 board = Board()
