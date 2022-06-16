@@ -21,10 +21,18 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('tic_tac_toe_scores')
 
-high_scores_unsorted = SHEET.worksheet("high_scores_unsorted")
-high_score_board = SHEET.worksheet("high_scores")
+high_scores = SHEET.worksheet("high_scores")
 
-high_score_data = high_score_board.get_all_values()
+high_score_data = high_scores.get_all_values()
+
+
+def sort_key(score):
+    """
+    Retrieves the column of numerical scores from the Google Sheet containing
+    the high score data.
+    """
+    return int(score[1])
+
 
 scores = {"computer": 0, "player": 0}
 guesses = []
@@ -210,6 +218,7 @@ def show_high_scores():
     exit to the main menu.
     """
     print("\nHIGH SCORES\n")
+    high_score_data.sort(key=sort_key, reverse=True)
     print(tabulate(high_score_data[0:5:1], headers=["Username", "Score"]))
     print(" ")
     exit_option()
@@ -474,8 +483,8 @@ def save_high_score():
     high score screen accessible from the main menu.
     """
     while True:
-        high_scores_unsorted.append_row([str(get_username().upper()),
-                                        int(scores['player'])])
+        high_scores.append_row([str(get_username().upper()),
+                                int(scores['player'])])
         print("\nOkay! Updating high score board...\n")
         time.sleep(2)
         end_game()
