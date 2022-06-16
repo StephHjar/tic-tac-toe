@@ -34,6 +34,8 @@ This also helped with planning input validation, and the options presented to th
 
 ### Existing Features
 
+### Data Structures
+
   - A class for the game board:
   ```
   class Board():
@@ -68,6 +70,10 @@ This also helped with planning input validation, and the options presented to th
         return self.cells
   ```
 
+  The Board class serves two major functions: 
+  - 1) to display the game board, with a value assigned to each bank cell in the board. 
+  - 2) to update the game board every time the computer or player makes a move, using a function that changes the value of the chosen cell. This cross-references the cell number that the player chose, and updates it with the symbol (X or O) that has been assigned to that player.
+
   - A class for the player:
   ```
   class Player():
@@ -79,6 +85,8 @@ This also helped with planning input validation, and the options presented to th
     def __init__(self, playing_as):
         self.playing_as = playing_as
   ```
+
+  This allows the program to randomly assign "X" or "O" to either the human player or the computer player, both instances of the player class. 
 
 ### Features Left to Implement
 
