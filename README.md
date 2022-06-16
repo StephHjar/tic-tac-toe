@@ -44,6 +44,10 @@ This also helped with planning input validation, and the options presented to th
     - The main menu appears when the program is run, and the player has the option to return to the main menu from different screens throughout the program. There is a validation function in place to ensure the player selects a valid option between the numbers 1 - 3.
     ![Main menu](documentation/testing/menu_screen.png)
 
+- __Instructions__
+    - The instructions screen loads in two parts (prompting the user to press enter) so they do not have to scroll up after the full page has loaded. It begins with a brief description of the objective of the game, and when the user presses enter, it displays a step-by-step walkthrough of how to play the game.
+    ![Instructions](documentation/testing/instructions.png)
+
 ### Data Structures
 
 A class for the game board:
