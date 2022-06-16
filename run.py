@@ -473,7 +473,8 @@ def save_high_score():
     high score screen accessible from the main menu.
     """
     while True:
-        high_scores.append_row([str(get_username()), int(scores['player'])])
+        high_scores.append_row([str(get_username().upper()),
+                               int(scores['player'])])
         print("\nOkay! Updating high score board...\n")
         time.sleep(2)
         end_game()
