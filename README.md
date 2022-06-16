@@ -67,9 +67,15 @@ This also helped with planning input validation, and the options presented to th
         1) a sample board, with each cell numbered 1 through 9, so the user understands which number corresponds with which cell;
         2) the active game board, which is blank when the game starts, and is updated as the player and computer make moves;
         3) a message confirming which symbol they will play (X or O), which symbol the computer will play, and who will go first. 
+    
     This makes it easy for the player to understand how to play, and who will make the first move. They are prompted to press enter to start the game when they have finished reading.
 
     ![Gameplay](documentation/testing/gameplay.png)
+
+- __Taking Turns__
+    - The program will automatically alternate between the computer taking a turn and the player taking a turn. On the player's turn, they will see what move the computer made, and will be prompted to choose a cell for their next move. When the player makes their move, the board will be updated. On the computer's turn, the screen will refresh and the board will update to show the move the computer made. Gameplay continues back and forth in this way until a winner or a draw is declared.
+
+    ![Taking a turn](documentation/testing/taking_turn.png)
 
 ### Data Structures
 
