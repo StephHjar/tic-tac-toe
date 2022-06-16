@@ -25,15 +25,6 @@ high_scores = SHEET.worksheet("high_scores")
 
 high_score_data = high_scores.get_all_values()
 
-
-def sort_key(score):
-    """
-    Retrieves the column of numerical scores from the Google Sheet containing
-    the high score data.
-    """
-    return int(score[1])
-
-
 scores = {"computer": 0, "player": 0}
 guesses = []
 
@@ -212,10 +203,20 @@ def show_instructions():
     exit_option()
 
 
+def sort_key(score):
+    """
+    Retrieves the column of numerical scores from the Google Sheet containing
+    the high score data. This code was adapted from PythonTutorial.net (credit
+    in README).
+    """
+    return int(score[1])
+
+
 def show_high_scores():
     """
     Display the high score board to the user, and gives them the option to
-    exit to the main menu.
+    exit to the main menu. The 'sort' code was adapted from PythonTutorial.net
+    (credit in README).
     """
     print("\nHIGH SCORES\n")
     high_score_data.sort(key=sort_key, reverse=True)
