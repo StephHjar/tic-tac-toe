@@ -19,6 +19,10 @@ The program was tested manually by going through all possible error validation m
 |Gameplay options: enter a number not between 1-9|Yes|![Successful error message](documentation/testing/gameplay_number.png)|
 |Gameplay options: enter a number of an occupied cell|Yes|![Successful error message](documentation/testing/gameplay_occupied.png)|
 |Gameplay: computer win|Yes|![Computer win](documentation/testing/computer_win.png)
+|Gameplay: player win|Yes|![Computer win](documentation/testing/player_win.png)
+|Gameplay: draw|Yes|![Computer win](documentation/testing/draw.png)
+
+
 
 
 ### Validator Testing 
