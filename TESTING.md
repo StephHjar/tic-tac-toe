@@ -13,6 +13,13 @@ The program was tested manually by going through all possible error validation m
 |Exit options: enter a letter other than Y or N|Yes|![Successful error message](documentation/testing/exit_letter.png)|
 |Exit options: enter a special character|Yes|![Successful error message](documentation/testing/exit_special_character.png)|
 |Exit options: enter a number|Yes|![Successful error message](documentation/testing/exit_number.png)|
+|Gameplay options: enter a space|Yes|![Successful error message](documentation/testing/gameplay_space.png)|
+|Gameplay options: enter a letter|Yes|![Successful error message](documentation/testing/gameplay_letter.png)|
+|Gameplay options: enter a special character|Yes|![Successful error message](documentation/testing/gameplay_special_character.png)|
+|Gameplay options: enter a number not between 1-9|Yes|![Successful error message](documentation/testing/gameplay_number.png)|
+|Gameplay options: enter a number of an occupied cell|Yes|![Successful error message](documentation/testing/gameplay_occupied.png)|
+|Gameplay: computer win|Yes|![Computer win](documentation/testing/computer_win.png)
+
 
 ### Validator Testing 
 
