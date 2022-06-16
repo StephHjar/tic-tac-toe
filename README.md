@@ -77,6 +77,11 @@ This also helped with planning input validation, and the options presented to th
 
     ![Taking a turn](documentation/testing/taking_turn.png)
 
+- __Declaring a Result__
+    - When either the player or computer have gotten 3 in a row, the program will declare a winner. If the board fills up with no winner, a draw will be declared and no points will be awarded. The overall score will be displayed: how many games the player has won, and how many games the computer has won. The player will also be presented with the option to play again. Selecting this option will start a new game, and they will continue to accrue points for each match won.
+
+    ![Declaring a result](documentation/testing/end_game.png) 
+
 ### Data Structures
 
 A class for the game board:
