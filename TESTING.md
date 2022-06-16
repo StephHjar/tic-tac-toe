@@ -19,8 +19,12 @@ The program was tested manually by going through all possible error validation m
 |Gameplay options: enter a number not between 1-9|Yes|![Successful error message](documentation/testing/gameplay_number.png)|
 |Gameplay options: enter a number of an occupied cell|Yes|![Successful error message](documentation/testing/gameplay_occupied.png)|
 |Gameplay: computer win|Yes|![Computer win](documentation/testing/computer_win.png)
-|Gameplay: player win|Yes|![Computer win](documentation/testing/player_win.png)
-|Gameplay: draw|Yes|![Computer win](documentation/testing/draw.png)
+|Gameplay: player win|Yes|![Player win](documentation/testing/player_win.png)
+|Gameplay: draw|Yes|![Draw](documentation/testing/draw.png)
+|New game options: enter a space|Yes|![Successful error message](documentation/testing/new_game_space.png)|
+|New game options: enter a letter other than Y or N|Yes|![Successful error message](documentation/testing/new_game_letter.png)|
+|New game options: enter a special character|Yes|![Successful error message](documentation/testing/new_game_special_character.png)|
+|New game options: enter a number|Yes|![Successful error message](documentation/testing/new_game_number.png)|
 
 
 
