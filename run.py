@@ -62,8 +62,9 @@ class Board():
     def is_winner(self, player):
         """
         Read the board to determine when there is a winner (3 of the same
-        symbol in a row). Some code from GeeksforGeeks was used in this
-        function (checking if all elements of a list are the same), credit in
+        symbol in a row). Some code from GeeksforGeeks was used while
+        refactoring this function, as well as code adapted from several
+        answers in a thread on StackOverflow. Credits for both are in the
         README.
         """
         wins = [
