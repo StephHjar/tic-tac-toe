@@ -220,6 +220,7 @@ The frontend terminal should now be connected and deployed to Heroku.
 
 ### Media
 - [Patorjk.com](https://patorjk.com/) was used to create the "Tic-Tac-Toe" ASCII lettering in the welcome message.
+- [Am I Responsive?](https://ui.dev/amiresponsive) was used to demonstrate the responsiveness of the site / program.
 
 ### Content 
 - I used Code Institute's Love Sandwiches Walkthrough ([final code here:](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode/tree/master/05-deployment/01-deployment-part-1)) for guidance with code structure, linking my program to Google Sheets using an API, and deployment steps.
