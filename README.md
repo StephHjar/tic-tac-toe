@@ -32,7 +32,10 @@ This also helped with planning input validation, and the options presented to th
   -   #### Frequent User Goals
       1. As a Frequent User, I want to see my previous scores on the high score board. 
 
-## Features 
+## Features
+- __Header__
+    - The header serves as a welcome message, and appears at the top of the terminal throughout gameplay and across menu screens. 
+    ![Header image](documentation/testing/header.png). I used cyan to make the header stand out and be visually appealing, and also because cyan is accessible to colourblind players on a black background.
 
 ### Existing Features
 
