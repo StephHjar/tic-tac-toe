@@ -150,6 +150,19 @@ This was refactored using list comprehension and slicing:
             return True
 ```
 
+This was then further refactored using list comprehension:
+
+```python
+ wins = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7],
+            [2, 5, 8], [0, 4, 8], [2, 4, 6]
+            ]
+        for win in wins:
+            if (self.cells[win[0]] == player and self.cells[win[1]] == player
+               and self.cells[win[2]] == player):
+                return True
+```
+
 ## Testing 
 
 Please see the [Testing file](TESTING.md) for manual & validator testing.
