@@ -82,6 +82,16 @@ This also helped with planning input validation, and the options presented to th
 
     ![Declaring a result](documentation/testing/end_game.png) 
 
+- __Submitting a High Score__
+    - If the player decides not to play another game, they will be asked if they want to save their score to the high score board. If they do, they will be prompted to enter a username. The username will be associated with their score. This will log the total number of games they won against the computer in that round of gameplay. Their score will only be displayed on the high score board visible to other players if they are in the top 5 high scorers.
+
+    ![Submitting a high score](documentation/testing/update_high_score.png)
+
+- __High Score Board__
+    - From the main menu, the user can access the high score board. This lists the top 5 highest scores from previous players, along with their names. This data is called from a Google Sheet and then sorted from highest to lowest by the program. 
+
+    ![High score board](documentation/testing/high_scores.png)
+
 ### Data Structures
 
 A class for the game board:
