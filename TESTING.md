@@ -1,7 +1,13 @@
 ## Testing 
 
 ### Manual Testing
+The program was tested manually by going through all possible error validation messages, and all possible game results (player win, computer win, draw). See the results below:
 
+| Test Case | Pass? | Screenshot |
+|-----------|-------|------------|
+|           |       |            |
+|           |       |            |
+|           |       |            |
 
 ### Validator Testing 
 
