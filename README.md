@@ -37,12 +37,20 @@ This also helped with planning input validation, and the options presented to th
 ### Existing Features
 
 - __Header__
-    - The header serves as a welcome message, and appears at the top of the terminal throughout gameplay and across menu screens. 
-    ![Header image](documentation/testing/header.png). I used cyan to make the header stand out and be visually appealing, and also because cyan is accessible to colourblind players on a black background.
+    - The header serves as a welcome message, and appears at the top of the terminal throughout gameplay and across menu screens. I used cyan to make the header stand out and be visually appealing, and also because cyan is accessible to colourblind players on a black background.
+
+    ![Header image](documentation/testing/header.png)
+
 
 - __Main Menu__
     - The main menu appears when the program is run, and the player has the option to return to the main menu from different screens throughout the program. There is a validation function in place to ensure the player selects a valid option between the numbers 1 - 3.
+    
     ![Main menu](documentation/testing/menu_screen.png)
+
+- __Error Messages__
+    - Any time there is free text user input (i.e. anything other than "press enter"), there is a function to validate the input. If a user enters an invalid selection, they will see a yellow error message explaining what has gone wrong, and prompting them to try again. I chose yellow so it would stand out visually, and because yellow on black is an accessible colour combination for colourblindness.
+
+    ![Error message](documentation/testing/validation.png)
 
 - __Instructions__
     - The instructions screen loads in two parts (prompting the user to press enter) so they do not have to scroll up after the full page has loaded. It begins with a brief description of the objective of the game, and when the user presses enter, it displays a step-by-step walkthrough of how to play the game.
