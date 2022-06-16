@@ -36,9 +36,9 @@ This also helped with planning input validation, and the options presented to th
 
 ### Data Structures
 
-  - A class for the game board:
-  ```
-  class Board():
+A class for the game board:
+```python
+class Board():
     """
     Main game board class. This sets the board size, and has methods for
     adding guesses and printing the board. Some of the code used here was
@@ -74,8 +74,8 @@ This also helped with planning input validation, and the options presented to th
   - 1) to display the game board, with a value assigned to each bank cell in the board. 
   - 2) to update the game board every time the computer or player makes a move, using a function that changes the value of the chosen cell. This cross-references the cell number that the player chose, and updates it with the symbol (X or O) that has been assigned to that player.
 
-  - A class for the player:
-  ```
+  A class for the player:
+  ```python
   class Player():
     """
     Player class. This determines whether the player or computer is playing
@@ -96,7 +96,7 @@ This also helped with planning input validation, and the options presented to th
 
 ## Testing 
 
-Please see the [Testing file](testing.md) for manual & validator testing.
+Please see the [Testing file](TESTING.md) for manual & validator testing.
 
 ### Unfixed Bugs
 
