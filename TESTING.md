@@ -5,9 +5,10 @@ The program was tested manually by going through all possible error validation m
 
 | Test Case | Pass? | Screenshot |
 |-----------|-------|------------|
-|           |       |            |
-|           |       |            |
-|           |       |            |
+|Main menu options: enter a space|Yes|![Successful error message](documentation/testing/main_menu_space.png)|
+|Main menu options: enter a letter|Yes|![Successful error message](documentation/testing/main_menu_letter.png)|
+|Main menu options: enter a special character|Yes|![Successful error message](documentation/testing/main_menu_special_character.png)|
+|Main menu options: enter a number not between 1-3|Yes|![Successful error message](documentation/testing/main_menu_number.png)|
 
 ### Validator Testing 
 
