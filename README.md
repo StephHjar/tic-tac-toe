@@ -52,6 +52,11 @@ This also helped with planning input validation, and the options presented to th
 
     ![Error message](documentation/testing/validation.png)
 
+- __Exit Message__
+    - At the bottom of the instruction and high score board screens, and when gameplay is over, the user has the option to exit to the main menu. This makes navigation easy between the different screens of my program.
+
+    ![Exit message](documentation/testing/exit_option.png)
+
 - __Instructions__
     - The instructions screen loads in two parts (prompting the user to press enter) so they do not have to scroll up after the full page has loaded. It begins with a brief description of the objective of the game, and when the user presses enter, it displays a step-by-step walkthrough of how to play the game.
     ![Instructions](documentation/testing/instructions.png)
