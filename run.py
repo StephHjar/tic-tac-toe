@@ -144,7 +144,7 @@ def choose_menu_option(entry):
                 show_high_scores()
                 break
             print(f"""{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: Please enter a
-number between 1 - 3.""")
+number between 1 - 3.\n""")
         display_main_menu()
         break
 
