@@ -105,7 +105,8 @@ class Player():
 
 def clear():
     """
-    Clear function to clean-up the terminal so things don't get messy.
+    Clear function to clean-up the terminal so things don't get messy. Code
+    from StackOverflow (credit in README).
     """
     os.system("cls" if os.name == "nt" else "clear")
 
