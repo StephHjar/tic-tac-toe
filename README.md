@@ -6,6 +6,8 @@ Users can play tic-tac-toe against a computer. The objective of the game is to p
 
 Users can also view a high score board to see how they compare to other players. Each win counts as one point on the score board. 
 
+For more information on the game of Tic-Tac-Toe, see [Wikipedia](https://en.wikipedia.org/wiki/Tic-tac-toe).
+
 ## Flowchart
 I created a flowchart to determine the logic of the game before starting to code. This allowed me to visualize the steps the user and computer each need to complete as they progress through the game.
 
