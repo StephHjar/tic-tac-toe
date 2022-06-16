@@ -10,7 +10,7 @@ Users can also view a high score board to see how they compare to other players.
 I created a flowchart to determine the logic of the game before starting to code. This allowed me to visualize the steps the user and computer each need to complete as they progress through the game.
 
 This also helped with planning input validation, and the options presented to the user when the program is initalized (play game, view instructions, and view the high score board).
-![Flowchart](assets/images/README/tictactoe_flowchart.png)
+![Flowchart](documentation/flowchart/tictactoe_flowchart.png)
 
 ## User Stories
 
