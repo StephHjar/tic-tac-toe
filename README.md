@@ -253,25 +253,29 @@ This project uses [Heroku](https://www.heroku.com), a platform as a service (Paa
 Deployment steps are as follows, after account setup:
 ​
 - Select *New* in the top-right corner of your Heroku Dashboard, and select *Create new app* from the dropdown menu.
-- Your app name must be unique, and then choose a region closest to you (EU or USA), and finally, select *Create App*.
+- Enter a name for your app. The app name must be unique, so you need to adjust the name until you find a name that hasn't been used.
+- From the dropdown, choose the region closest to you (EU or USA), and finally, select *Create App*.
 - From the new app *Settings*, click *Reveal Config Vars*, and set the value of KEY to `PORT`, and the value to `8000` then select *add*.
-- Now, add a seecond Config Var for the creds.json file, which contains the API Key from Google Sheets. Set the value of KEY to `CREDS` and paste the entire contents of creds.json in the VALUE box. Select *add*.
-- Further down, to support dependencies, select *Add Buildpack*.
-- The order of the buildpacks is important, select `Python` first, then `Node.js` second. (if they are not in this order, you can drag them to rearrange them
+- Now, add a seecond Config Var for the `creds.json`file, which contains the API Key from Google Sheets. Set the value of KEY to `CREDS` and paste the entire contents of `creds.json` in the VALUE box. Select *add*.
+- Further down, to support dependencies, select *Add buildpack*.
+- The order of the buildpacks is important. Select `Python` first, then *Save changes*. Click *Add buildpack* again, and select `Node.js`, then *Save changes*. If they are not in this order, you can drag them to rearrange them
 
 Heroku needs two additional files in order to deploy properly.
 - requirements.txt
 - Procfile
-​
+
 You can install this project's requirements (where applicable) using: `pip3 install -r requirements.txt`. If you have your own packages that have been installed, then the requirements file needs to be updated using: `pip3 freeze --local > requirements.txt`
 
 The Procfile can be created with the following command: `echo web: node index.js > Procfile`
 
 For Heroku deployment, follow these steps to connect your GitHub repository to the newly created app:
 ​
-- In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
-- Set the remote for Heroku: `heroku git:remote -a <app_name>` (replace app_name with your app, without the angle-brackets)
-- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type: `git push heroku main`
+- At the top of the screen on Heroku, select *Deploy*.
+- Next to *Deployment method* select *GitHub*, then scroll down and click *Connect to GitHub* to confirm you want to connect.
+- In the *repo-name* field, search for the name of the GitHub repository to deploy, and click *Search*.
+- Click *Connect* to link the GitHub repository with Heroku. 
+- Scroll down to the *Manual deploy* section, and click *Deploy Branch*.
+- If you like, click *Enable Automatic Deploys* in the *Automatic deploys* section to have Heroku rebuild your app every time you push a new change to GitHub.
 
 The frontend terminal should now be connected and deployed to Heroku.
 
