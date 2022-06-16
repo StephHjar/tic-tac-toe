@@ -114,9 +114,9 @@ The live deployed application can be found at [tic-tac-toe-steph](https://tic-ta
 ​
 To make a local copy of this repository, you can clone the project by typing the follow into your IDE terminal:
 - `git clone https://github.com/StephHjar/tic-tac-toe.git`
-​
+
 Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
-​
+
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/StephHjar/tic-tac-toe)
 ​
 ### Heroku Deployment
@@ -137,15 +137,15 @@ Heroku needs two additional files in order to deploy properly.
 - Procfile
 ​
 You can install this project's requirements (where applicable) using: `pip3 install -r requirements.txt`. If you have your own packages that have been installed, then the requirements file needs updated using: `pip3 freeze --local > requirements.txt`
-​
+
 The Procfile can be created with the following command: `echo web: node index.js > Procfile`
-​
+
 For Heroku deployment, follow these steps to connect your GitHub repository to the newly created app:
 ​
 - In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
 - Set the remote for Heroku: `heroku git:remote -a <app_name>` (replace app_name with your app, without the angle-brackets)
 - After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type: `git push heroku main`
-​
+
 The frontend terminal should now be connected and deployed to Heroku.
 
 
