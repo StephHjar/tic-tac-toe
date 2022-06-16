@@ -128,7 +128,7 @@ def display_main_menu():
     They can choose to read the instructions, start a new game, or view the
     high score board.
     """
-    print("""\nWhat would you like to do now?\n
+    print("""What would you like to do now?\n
     1 - Read Instructions
     2 - Start a New Game
     3 - View High Scores\n""")
@@ -172,7 +172,7 @@ def validate_num(num):
             raise TypeError(f"""You entered '{num}'.
 Please enter a valid number.\n""")
     except TypeError as error:
-        print(f"{Fore.YELLOW}{Style.BRIGHT}Invalid entry: {error}")
+        print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: {error}")
         return False
 
     return True
@@ -412,11 +412,13 @@ def validate_move(cell):
             raise ValueError(f"""\nYou entered {cell}. Please enter a number
 between 1 - 9.\n""")
         if int(cell) in guesses:
-            raise ValueError("""This cell is already occupied. Please enter
+            raise ValueError("""\nThis cell is already occupied. Please enter
 another number.\n""")
     except ValueError as error:
-        print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: {error}")
+        display_board_guide()
         board.display()
+        print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: {error}")
+
         return False
     return True
 
