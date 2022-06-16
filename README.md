@@ -13,7 +13,7 @@ I created a flowchart to determine the logic of the game before starting to code
 
 This also helped with planning input validation, and the options presented to the user when the program is initalized (play game, view instructions, and view the high score board).
 
-The only deviation from this flowchart was that I decided to ask for a username only at the end of gameplayer, if a user chooses to add their score to the high score board. There was no need to ask for a username to start the game, and if the user doens't elect to add their score to the board, their username was collected for no purpose. Asking for the username only when it was needed makes the flow of the program more streamlined.
+The only deviation from this flowchart was that I decided to ask for a username only at the end of gameplay, if a user chooses to add their score to the high score board. There was no need to ask for a username to start the game, and if the user doens't elect to add their score to the board, their username was collected for no purpose. Asking for the username only when it is needed makes the flow of the program more streamlined.
 
 ![Flowchart](documentation/flowchart/tictactoe_flowchart.png)
 
@@ -30,7 +30,6 @@ The only deviation from this flowchart was that I decided to ask for a username 
 
       1. As a Returning Visitor, I want to view the high score board to see what has changed since I last played.
       2. As a Returning Visitor, I want to start a new round of Tic-Tac-Toe games against the computer, so I can update my own high score.
-      3. As a Returning Visitor, I want my high scores to be associated with the same username. 
 
   -   #### Frequent User Goals
       1. As a Frequent User, I want to see my previous scores on the high score board. 
@@ -97,7 +96,7 @@ The only deviation from this flowchart was that I decided to ask for a username 
 
 ### Data Structures
 
-A class for the game board:
+__Board Class__
 ```python
 class Board():
     """
@@ -131,13 +130,15 @@ class Board():
         return self.cells
   ```
 
-  The Board class serves two major functions: 
-  - 1) to display the game board, with a value assigned to each bank cell in the board. 
-  - 2) to update the game board every time the computer or player makes a move, using a function that changes the value of the chosen cell. This cross-references the cell number that the player chose, and updates it with the symbol (X or O) that has been assigned to that player.
+The Board class serves two major functions: 
+        
+1) to display the game board, with a value assigned to each bank cell in the board. 
+        
+2) to update the game board every time the computer or player makes a move, using a function that changes the value of the chosen cell. This cross-references the cell number that the player chose, and updates it with the symbol (X or O) that has been assigned to that player.
 
-  A class for the player:
-  ```python
-  class Player():
+__Player Class__
+```python
+class Player():
     """
     Player class. This determines whether the player or computer is playing
     Xs or Os.
@@ -145,7 +146,7 @@ class Board():
 
     def __init__(self, playing_as):
         self.playing_as = playing_as
-  ```
+```
 
   This allows the program to randomly assign "X" or "O" to either the human player or the computer player, both instances of the player class. 
 
@@ -237,7 +238,7 @@ The live deployed application can be found at [tic-tac-toe-steph](https://tic-ta
 ### Local Deployment
 ​
 *Gitpod* IDE was used to write the code for this project.
-​
+
 To make a local copy of this repository, you can clone the project by typing the follow into your IDE terminal:
 - `git clone https://github.com/StephHjar/tic-tac-toe.git`
 
@@ -256,13 +257,13 @@ Deployment steps are as follows, after account setup:
 - From the new app *Settings*, click *Reveal Config Vars*, and set the value of KEY to `PORT`, and the value to `8000` then select *add*.
 - Now, add a seecond Config Var for the creds.json file, which contains the API Key from Google Sheets. Set the value of KEY to `CREDS` and paste the entire contents of creds.json in the VALUE box. Select *add*.
 - Further down, to support dependencies, select *Add Buildpack*.
-- The order of the buildpacks is important, select `Python` first, then `Node.js` second. (if they are not in this order, you can drag them to rearrange them)
-​
+- The order of the buildpacks is important, select `Python` first, then `Node.js` second. (if they are not in this order, you can drag them to rearrange them
+
 Heroku needs two additional files in order to deploy properly.
 - requirements.txt
 - Procfile
 ​
-You can install this project's requirements (where applicable) using: `pip3 install -r requirements.txt`. If you have your own packages that have been installed, then the requirements file needs updated using: `pip3 freeze --local > requirements.txt`
+You can install this project's requirements (where applicable) using: `pip3 install -r requirements.txt`. If you have your own packages that have been installed, then the requirements file needs to be updated using: `pip3 freeze --local > requirements.txt`
 
 The Procfile can be created with the following command: `echo web: node index.js > Procfile`
 
