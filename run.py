@@ -64,29 +64,21 @@ class Board():
         Read the board to determine when there is a winner (3 of the same
         symbol in a row).
         """
-        if (self.cells[0] == player and self.cells[1] == player and
-                self.cells[2] == player):
+        if all(cell == player for cell in self.cells[0:3]):
             return True
-        if (self.cells[3] == player and self.cells[4] == player and
-                self.cells[5] == player):
+        if all(cell == player for cell in self.cells[3:6]):
             return True
-        if (self.cells[6] == player and self.cells[7] == player and
-                self.cells[8] == player):
+        if all(cell == player for cell in self.cells[6:9]):
             return True
-        if (self.cells[0] == player and self.cells[3] == player and
-                self.cells[6] == player):
+        if all(cell == player for cell in self.cells[0:7:3]):
             return True
-        if (self.cells[1] == player and self.cells[4] == player and
-                self.cells[7] == player):
+        if all(cell == player for cell in self.cells[1:8:3]):
             return True
-        if (self.cells[2] == player and self.cells[5] == player and
-                self.cells[8] == player):
+        if all(cell == player for cell in self.cells[2:9:3]):
             return True
-        if (self.cells[0] == player and self.cells[4] == player and
-                self.cells[8] == player):
+        if all(cell == player for cell in self.cells[0:9:4]):
             return True
-        if (self.cells[2] == player and self.cells[4] == player and
-                self.cells[6] == player):
+        if all(cell == player for cell in self.cells[2:7:2]):
             return True
 
 
