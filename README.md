@@ -12,6 +12,9 @@ For more information on the game of Tic-Tac-Toe, see [Wikipedia](https://en.wiki
 I created a flowchart to determine the logic of the game before starting to code. This allowed me to visualize the steps the user and computer each need to complete as they progress through the game.
 
 This also helped with planning input validation, and the options presented to the user when the program is initalized (play game, view instructions, and view the high score board).
+
+The only deviation from this flowchart was that I decided to ask for a username only at the end of gameplayer, if a user chooses to add their score to the high score board. There was no need to ask for a username to start the game, and if the user doens't elect to add their score to the board, their username was collected for no purpose. Asking for the username only when it was needed makes the flow of the program more streamlined.
+
 ![Flowchart](documentation/flowchart/tictactoe_flowchart.png)
 
 ## User Stories
