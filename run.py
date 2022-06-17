@@ -35,9 +35,8 @@ high_score_data = high_scores.get_all_values()
 scores = {"computer": 0, "player": 0}
 guesses = []
 
-# Classes for Board & Player
 
-
+# Class for game board
 class Board():
     """
     Main game board class. This sets the board size, and has methods for
@@ -90,10 +89,11 @@ class Board():
 board = Board()
 
 
+# Class for player
 class Player():
     """
     Player class. This determines whether the player or computer is playing
-    Xs or Os.
+    Xs or Os, and alternates between the player and computer's turns.
     """
 
     def __init__(self, playing_as):
@@ -299,7 +299,7 @@ def show_instructions():
     exit_option()
 
 
-# Functions for high score board
+# Functions to display high score board
 def sort_key(score):
     """
     Retrieves the column of numerical scores from the Google Sheet containing
