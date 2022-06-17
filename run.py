@@ -479,8 +479,8 @@ def end_game():
     option to return to the main menu.
     """
     print("I hope you enjoyed playing Tic-Tac-Toe! Press the orange 'Run\n"
-          " Program' button above if you would like to start the program\n"
-          " over and reset all scores to '0'. Otherwise:\n")
+          "Program' button above if you would like to start the program\n"
+          "over and reset all scores to '0'. Otherwise:\n")
     exit_option()
 
 
