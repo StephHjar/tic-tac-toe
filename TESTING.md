@@ -54,7 +54,13 @@ After making some changes to the code (spacing/indentation), a third pass also c
 
 ### Unfixed Bugs
 
-- Due to limitations in Code Institute's Heroku template, which was used for deployment, this site is *not* fully responsive. This shows responsiveness during various stages of gameplay: 
+- Due to limitations in Code Institute's Heroku template, which was used for deployment, this site is *not* fully responsive. The terminal cannot receive input from a mobile keyboard, and does not resize based on window size. Making the application fully responsive was beyond the scope of this project. This shows responsiveness during various stages of gameplay: 
+
 ![Am I Responsive screenshot](documentation/testing/amiresponsive.png)
 
-The terminal cannot receive input from a mobile keyboard, and does not resize based on window size. Making the application fully responsive was beyond the scope of this project.
+
+- Similarly, due to limitations in the Heroku template, the `clear()` function only clears the visible part of the terminal. 
+This is not disruptive to the player, as the visible area is always cleared. Everything the user needs to interact with is contained on one screen, so the user has no reason to scroll up within the terminal. 
+However, if they do scroll up after having navigated through different screens, they will see the parts of the previous screen that were not cleared (i.e. anything that was outside the visible section of the terminal when the `clear()` function was called). Because this is only a limitation in the deployed terminal, and not an issue when the program is run in the command line, this remains unresolved at this time. See an example below: 
+
+![Uncleared screen](documentation/testing/clear_screen.png)
