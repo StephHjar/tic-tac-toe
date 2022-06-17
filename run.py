@@ -279,7 +279,7 @@ def show_instructions():
     print("""INSTRUCTIONS:\n
     The objective of the game is to get 3 Xs or 3 Os in a row, on a 3x3
     grid.\n
-    Here is what to expect when you start a new game of Tic-Tac- Toe:\n""")
+    Here is what to expect when you start a new game of Tic-Tac-Toe:\n""")
     input("Press enter to continue...\n")
     print("""STEPS:\n
     1) Either you or the computer will be randomly chosen to make the
@@ -464,7 +464,7 @@ def display_board_guide():
     Displays a sample board with numbered cells, so the user knows which
     number to input for each cell.
     """
-    print("\nUse this board as a guide when making guesses. Each number"
+    print("\nUse this board as a guide when making guesses. Each number\n"
           " corresponds to a cell on the board.\n")
     print(" 1 | 2 | 3 ")
     print(" ---------")
@@ -479,8 +479,8 @@ def end_game():
     option to return to the main menu.
     """
     print("I hope you enjoyed playing Tic-Tac-Toe! Press the orange 'Run\n"
-          "Program' button above if you would like to start the program"
-          " over\nand reset all scores to '0'. Otherwise:\n")
+          " Program' button above if you would like to start the program\n"
+          " over and reset all scores to '0'. Otherwise:\n")
     exit_option()
 
 
