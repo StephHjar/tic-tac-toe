@@ -1,7 +1,7 @@
 ## Testing 
 
 ### Manual Testing
-The program was tested manually by going through all possible error validation messages, and all possible game results (player win, computer win, draw). See the results below:
+The program was tested manually by going through all possible error validation messages, all possible game results (player win, computer win, draw), and the functionality of writing to the high score board. See the results below:
 
 | Test Case | Pass? | Screenshot |
 |-----------|-------|------------|
@@ -34,6 +34,8 @@ The program was tested manually by going through all possible error validation m
 |Username entry: enter a number|Yes|![Successful error message](documentation/testing/username_number.png)|
 |Username entry: less than 3 letters|Yes|![Successful error message](documentation/testing/username_letter3.png)|
 |Username entry: more than 8 letters|Yes|![Successful error message](documentation/testing/username_letter8.png)|
+|Confirm writing to high score board|Yes|![High score confirmation message](documentation/testing/high_score_confirmation.png)|
+|Update Google Sheet|Yes|![Updated spreadsheet](documentation/testing/high_score_sheet.png)
 
 
 ### Validator Testing 
