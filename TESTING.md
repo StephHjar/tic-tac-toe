@@ -30,6 +30,13 @@ The program was tested manually by going through all possible error validation m
 
 
 ### Validator Testing 
+Code was passed through the [PEP8 online linter](http://pep8online.com/). On the initial run, one issue was found, a line break before a binary operator:
+
+![PEP8 results 1](documentation/testing/pep8_result1.png)
+
+I adjusted the line spacing in the function, and no errors were found on a second pass:
+
+![PEP8 results 1](documentation/testing/pep8_result2.png)
 
 
 ### Unfixed Bugs
