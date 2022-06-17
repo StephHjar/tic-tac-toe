@@ -143,14 +143,63 @@ __Player Class__
 class Player():
     """
     Player class. This determines whether the player or computer is playing
-    Xs or Os.
+    Xs or Os, and alternates between the player and computer's turns.
     """
 
     def __init__(self, playing_as):
         self.playing_as = playing_as
+
+    def take_human_turn(self, player):
+        """
+        Prompts the player to take their turn, by choosing a cell on the board
+        to place their X or O. Triggers validation workflow to ensure the
+        entry is valid.
+        """
+        print("It's your turn!\n")
+        while True:
+            cell_choice = input("Where would you like to place your"
+                                f" {player}?\n")
+            if validate_num(cell_choice):
+                if validate_move(cell_choice):
+                    guesses.append(int(cell_choice))
+                    update_board(cell_choice, player)
+                    print(f"Okay! You have chosen cell {cell_choice}.\n"
+                          "\nPlease wait...\n")
+                    time.sleep(2)
+                    if len(guesses) >= 5:
+                        winner = "You"
+                        check_result(player, winner)
+                    if player == "X":
+                        self.take_computer_turn("O")
+                    else:
+                        self.take_computer_turn("X")
+
+    def take_computer_turn(self, player):
+        """
+        Makes the computer take its turn, by placing an X or O in a random free
+        cell on the board.
+        """
+        while True:
+            cell_choice = random.randint(1, 9)
+            while cell_choice in guesses and len(guesses) < 9:
+                cell_choice = random.randint(1, 9)
+            if validate_move(cell_choice):
+                guesses.append(int(cell_choice))
+                update_board(cell_choice, player)
+                print(f"Computer has chosen to place their {player} in cell"
+                      f" {cell_choice}.\n"
+                      "\nPlease wait...\n")
+                time.sleep(1)
+                if len(guesses) >= 5:
+                    winner = "The computer"
+                    check_result(player, winner)
+                if player == "X":
+                    self.take_human_turn("O")
+                else:
+                    self.take_human_turn("X")
 ```
 
-  This allows the program to randomly assign "X" or "O" to either the human player or the computer player, both instances of the player class. 
+  The Player class allows the program to randomly assign "X" or "O" to either the human player or the computer player, both instances of the player class. It also contains functions for the computer making a move, and the human player making a move, each calling the other so it alternates between the two until a winner or a draw is declared. 
 
 ### Features Left to Implement
 
