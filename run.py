@@ -92,6 +92,55 @@ class Player():
     def __init__(self, playing_as):
         self.playing_as = playing_as
 
+    def take_human_turn(self, player):
+        """
+        Prompts the player to take their turn, by choosing a cell on the board
+        to place their X or O. Triggers validation workflow to ensure the
+        entry is valid.
+        """
+        print("It's your turn!\n")
+        while True:
+            cell_choice = input(f"""Where would you like to place your
+{player}?\n""")
+            if validate_num(cell_choice):
+                if validate_move(cell_choice):
+                    guesses.append(int(cell_choice))
+                    update_board(cell_choice, player)
+                    print(f"""Okay! You have chosen cell {cell_choice}.\n
+Please wait...\n""")
+                    time.sleep(2)
+                    if len(guesses) >= 5:
+                        winner = "You"
+                        check_result(player, winner)
+                    if player == "X":
+                        self.take_computer_turn("O")
+                    else:
+                        self.take_computer_turn("X")
+
+    def take_computer_turn(self, player):
+        """
+        Makes the computer take its turn, by placing an X or O in a random free
+        cell on the board.
+        """
+        while True:
+            cell_choice = random.randint(1, 9)
+            while cell_choice in guesses and len(guesses) < 9:
+                cell_choice = random.randint(1, 9)
+            if validate_move(cell_choice):
+                guesses.append(int(cell_choice))
+                update_board(cell_choice, player)
+                print(f"""Computer has chosen to place their {player} in cell
+{cell_choice}.\n
+Please wait...\n""")
+                time.sleep(1)
+                if len(guesses) >= 5:
+                    winner = "The computer"
+                    check_result(player, winner)
+                if player == "X":
+                    self.take_human_turn("O")
+                else:
+                    self.take_human_turn("X")
+
 
 def clear():
     """
@@ -299,60 +348,9 @@ def choose_player():
 as {player_computer.playing_as}. X goes first.\n""")
     input("Press enter to start the game...\n")
     if player_human.playing_as == "X":
-        take_human_turn(player_human.playing_as)
+        player_human.take_human_turn(player_human.playing_as)
     if player_human.playing_as == "O":
-        take_computer_turn(player_computer.playing_as)
-
-
-def take_human_turn(player):
-    """
-    Prompts the player to take their turn, by choosing a cell on the board
-    to place their X or O. Triggers validation workflow to ensure the entry is
-    valid.
-    """
-    print("It's your turn!\n")
-    while True:
-        cell_choice = input(f"""Where would you like to place your
-{player}?\n""")
-        if validate_num(cell_choice):
-            if validate_move(cell_choice):
-                guesses.append(int(cell_choice))
-                update_board(cell_choice, player)
-                print(f"""Okay! You have chosen cell {cell_choice}.\n
-Please wait...\n""")
-                time.sleep(2)
-                if len(guesses) >= 5:
-                    winner = "You"
-                    check_result(player, winner)
-                if player == "X":
-                    take_computer_turn("O")
-                else:
-                    take_computer_turn("X")
-
-
-def take_computer_turn(player):
-    """
-    Makes the computer take its turn, by placing an X or O in a random free
-    cell on the board.
-    """
-    while True:
-        cell_choice = random.randint(1, 9)
-        while cell_choice in guesses and len(guesses) < 9:
-            cell_choice = random.randint(1, 9)
-        if validate_move(cell_choice):
-            guesses.append(int(cell_choice))
-            update_board(cell_choice, player)
-            print(f"""Computer has chosen to place their {player} in cell
-{cell_choice}.\n
-Please wait...\n""")
-            time.sleep(1)
-            if len(guesses) >= 5:
-                winner = "The computer"
-                check_result(player, winner)
-            if player == "X":
-                take_human_turn("O")
-            else:
-                take_human_turn("X")
+        player_computer.take_computer_turn(player_computer.playing_as)
 
 
 def check_result(playing_as, winner):
