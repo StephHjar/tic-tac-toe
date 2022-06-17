@@ -250,7 +250,7 @@ Please see the [Testing file](TESTING.md) for manual & validator testing.
 ## Deployment
 ​
 Code Institute has provided a [template](https://github.com/Code-Institute-Org/python-essentials-template) to display the terminal view of this backend application in a modern web browser. This is to improve the accessibility of the project to others.
-​
+
 The live deployed application can be found at [tic-tac-toe-steph](https://tic-tac-toe-steph.herokuapp.com/).
 ​
 ### Local Deployment
@@ -305,19 +305,18 @@ The frontend terminal should now be connected and deployed to Heroku.
 - [Am I Responsive?](https://ui.dev/amiresponsive) was used to demonstrate the responsiveness of the site / program.
 
 ### Content 
-- I used Code Institute's Love Sandwiches Walkthrough ([final code here:](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode/tree/master/05-deployment/01-deployment-part-1)) for guidance with code structure, linking my program to Google Sheets using an API, and deployment steps.
+- I used Code Institute's Love Sandwiches Walkthrough ([repo here](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode/tree/master/05-deployment/01-deployment-part-1)) for guidance with code structure, linking my program to Google Sheets using an API, and deployment steps.
 - [Tech with Tim](https://www.youtube.com/watch?v=u51Zjlnui4Y)'s Colorama tutorial was used to install & use Colorama, to change text colour in the terminal.
 - [This article](https://www.uxmatters.com/mt/archives/2007/01/applying-color-theory-to-digital-displays.php) on UX Matters was used to confirm which colours are best for accessibility on a black background. This helped me choose a bright cyan as my welcome message colour and yellow for my error messages.
 - The 'clear' function is from [this post](https://stackoverflow.com/questions/2084508/clear-terminal-in-python) on StackOverflow.
 - The Tabulate library was used to display the high score board data in a table. [DelftStack](https://www.delftstack.com/howto/python/data-in-table-format-python/) introduced me to the tabulate library, and I used [PyPi](https://pypi.org/project/tabulate/) for help on how to install it.
-- [This page](https://www.extendoffice.com/documents/excel/5170-google-sheets-automatically-sort-alphabetically.html) on ExtendOffice was used to look up how to sort a Google Sheet automatically (when new scores are added to the sheet, this automatically sorts them from highest to lowest).
 - I used [this page](https://www.guru99.com/python-time-sleep-delay.html) on Guru99 for instructions on how to import and use the time module.
-- [TokyoEdtech's Tic-Tac-Toe Tutorial](https://www.youtube.com/watch?v=7Djh-Cbgi0E) on Youtube helped give me ideas for how to display the Board class (in Part 1 of the video series) and how to determine a winner (Part 3 of the video series). Code from these videos was used and modified in the Board class and in the `check_result` function.
+- [TokyoEdtech's Tic-Tac-Toe Tutorial](https://www.youtube.com/watch?v=7Djh-Cbgi0E) on Youtube helped give me ideas for how to display the Board class (in Part 1 of the video series) and how to determine a winner (Part 3 of the video series). Code from these videos was used and modified in the Board class and in the `check_result()` function.
 - [This question on StackOverflow](https://stackoverflow.com/questions/41906978/python-randomly-choose-a-spot-on-a-tic-tac-toe-board) helped me understand how to use the random method to assign X or O to the player randomly, and select a random cell for the computer to play each turn.
-- I used [this question on StackOverflow](https://stackoverflow.com/questions/48266880/python-generate-random-integer-that-is-not-in-a-list) to have the computer only guess a cell that had not already been guessed (and would therefore be present in the 'guesses' list).
+- I used [this question on StackOverflow](https://stackoverflow.com/questions/48266880/python-generate-random-integer-that-is-not-in-a-list) to have the computer only guess a cell that had not already been guessed (and would therefore be present in the `guesses` list).
 - I used code from [this page on PythonTutorial.net](https://www.pythontutorial.net/python-basics/python-sort-list/#:~:text=Summary-,Use%20the%20Python%20List%20sort()%20method%20to%20sort%20a,reverse%20the%20default%20sort%20order.) to sort the high score list by score. Specifically, the 'Using the Python List sort() method to sort a list of tuples' section of this page.
 - I used "Method #1 Using `all()`" on [GeeksforGeeks](https://www.geeksforgeeks.org/python-check-if-all-elements-in-list-follow-a-condition/) to check if all elements in a list are equal to X or O, in the `is_winner()` function.
 - I used ideas from the answers to [this thread on StackOverflow](https://stackoverflow.com/questions/10666163/how-to-check-if-all-elements-of-a-list-match-a-condition) while refactoring the `is_winner()` function. 
 
 - Thank you to my mentors for this project, Tim Nelson and Narender Singh, for support and guidance throughout - and for helping with the deployment steps in my README.
-- Big thank you to my fiancé and #1 manual, Jonathan, for playing more games of Tic-Tac-Toe in the space of a week than anyone has probably played in a lifetime!
+- Big thank you to my fiancé and #1 manual tester, Jonathan, for playing more games of Tic-Tac-Toe in the space of a week than anyone has probably played in a lifetime!
