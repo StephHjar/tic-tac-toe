@@ -1,15 +1,21 @@
 """Import external libraries"""
+# Used for the clear() function, to clear the screen
 import os
+# Used for the time.sleep() function, to pause between moves
 import time
+# Used to assign X or O to a player randomly, and for computer moves
 import random
+# Used to display high score data in a table
 from tabulate import tabulate
+# Used to access Google Sheets to read/write high score data
 import gspread
 from google.oauth2.service_account import Credentials
+# Used to add color to the header and error messages
 import colorama
 from colorama import Fore, Style
 colorama.init(autoreset=True)
 
-
+# Call data from Google sheets, to read and write high scores
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -25,8 +31,11 @@ high_scores = SHEET.worksheet("high_scores")
 
 high_score_data = high_scores.get_all_values()
 
+# Track scores and guesses made throughout the game
 scores = {"computer": 0, "player": 0}
 guesses = []
+
+# Classes for Board & Player
 
 
 class Board():
@@ -140,6 +149,7 @@ class Player():
                     self.take_human_turn("X")
 
 
+# Utility functions used throughout the program
 def clear():
     """
     Clear function to clean-up the terminal so things don't get messy. Code
@@ -215,54 +225,6 @@ def validate_num(num):
     return True
 
 
-def show_instructions():
-    """
-    Display instructions showing how to play tic-tac-toe, and give the user
-    the option to exit the instructions when they are finished.
-    """
-    print("""INSTRUCTIONS:\n
-    The objective of the game is to get 3 Xs or 3 Os in a row, on a 3x3
-    grid.\n
-    Here is what to expect when you start a new game of Tic-Tac- Toe:\n""")
-    input("Press enter to continue...\n")
-    print("""STEPS:\n
-    1) Either you or the computer will be randomly chosen to make the
-    first move. If you go first, you will be assigned the letter X. If you
-    go second, you will be assigned the letter O.\n
-    2) A 3 x 3 grid will be displayed, with each cell assigned a number
-    from 1 to 9.\n
-    3) Whoever goes first will pick a cell to place their X. The next
-    player will then select a cell to place their O.\n
-    4) The game will continue alternating turns until either you or the
-    computer has 3 Xs or Os in a row on the board. Then, a winner will be
-    declared. You will have the option to play again, or log your high
-    score.\n
-    Have fun!\n""")
-    exit_option()
-
-
-def sort_key(score):
-    """
-    Retrieves the column of numerical scores from the Google Sheet containing
-    the high score data. This code was adapted from PythonTutorial.net (credit
-    in README).
-    """
-    return int(score[1])
-
-
-def show_high_scores():
-    """
-    Display the high score board to the user, and gives them the option to
-    exit to the main menu. The 'sort' code was adapted from PythonTutorial.net
-    (credit in README).
-    """
-    print("\nHIGH SCORES\n")
-    high_score_data.sort(key=sort_key, reverse=True)
-    print(tabulate(high_score_data[0:5:1], headers=["Username", "Score"]))
-    print(" ")
-    exit_option()
-
-
 def exit_option():
     """
     Shows the user the option to exit the current page and return to the
@@ -308,6 +270,56 @@ def new_screen():
     """
     clear()
     display_header()
+
+
+# Function for instructions screen
+def show_instructions():
+    """
+    Display instructions showing how to play tic-tac-toe, and give the user
+    the option to exit the instructions when they are finished.
+    """
+    print("""INSTRUCTIONS:\n
+    The objective of the game is to get 3 Xs or 3 Os in a row, on a 3x3
+    grid.\n
+    Here is what to expect when you start a new game of Tic-Tac- Toe:\n""")
+    input("Press enter to continue...\n")
+    print("""STEPS:\n
+    1) Either you or the computer will be randomly chosen to make the
+    first move. If you go first, you will be assigned the letter X. If you
+    go second, you will be assigned the letter O.\n
+    2) A 3 x 3 grid will be displayed, with each cell assigned a number
+    from 1 to 9.\n
+    3) Whoever goes first will pick a cell to place their X. The next
+    player will then select a cell to place their O.\n
+    4) The game will continue alternating turns until either you or the
+    computer has 3 Xs or Os in a row on the board. Then, a winner will be
+    declared. You will have the option to play again, or log your high
+    score.\n
+    Have fun!\n""")
+    exit_option()
+
+
+# Functions for high score board
+def sort_key(score):
+    """
+    Retrieves the column of numerical scores from the Google Sheet containing
+    the high score data. This code was adapted from PythonTutorial.net (credit
+    in README).
+    """
+    return int(score[1])
+
+
+def show_high_scores():
+    """
+    Display the high score board to the user, and gives them the option to
+    exit to the main menu. The 'sort' code was adapted from PythonTutorial.net
+    (credit in README).
+    """
+    print("\nHIGH SCORES\n")
+    high_score_data.sort(key=sort_key, reverse=True)
+    print(tabulate(high_score_data[0:5:1], headers=["Username", "Score"]))
+    print(" ")
+    exit_option()
 
 
 def start_new_game():
