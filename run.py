@@ -100,14 +100,14 @@ class Player():
         """
         print("It's your turn!\n")
         while True:
-            cell_choice = input(f"""Where would you like to place your
-{player}?\n""")
+            cell_choice = input("Where would you like to place your"
+                                f" {player}?\n")
             if validate_num(cell_choice):
                 if validate_move(cell_choice):
                     guesses.append(int(cell_choice))
                     update_board(cell_choice, player)
-                    print(f"""Okay! You have chosen cell {cell_choice}.\n
-Please wait...\n""")
+                    print(f"Okay! You have chosen cell {cell_choice}."
+                          "\nPlease wait...\n")
                     time.sleep(2)
                     if len(guesses) >= 5:
                         winner = "You"
@@ -129,9 +129,9 @@ Please wait...\n""")
             if validate_move(cell_choice):
                 guesses.append(int(cell_choice))
                 update_board(cell_choice, player)
-                print(f"""Computer has chosen to place their {player} in cell
-{cell_choice}.\n
-Please wait...\n""")
+                print(f"Computer has chosen to place their {player} in cell"
+                      f" {cell_choice}."
+                      "\nPlease wait...\n")
                 time.sleep(1)
                 if len(guesses) >= 5:
                     winner = "The computer"
@@ -195,8 +195,8 @@ def choose_menu_option(entry):
                 new_screen()
                 show_high_scores()
                 break
-            print(f"""{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: Please enter a
-number between 1 - 3.\n""")
+            print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: Please enter a"
+                  " number between 1 - 3.\n")
         display_main_menu()
         break
 
@@ -208,8 +208,8 @@ def validate_num(num):
     """
     try:
         if num.isdigit() is False:
-            raise TypeError(f"""You entered '{num}'.
-Please enter a valid number.\n""")
+            raise TypeError(f"You entered '{num}'."
+                            " Please enter a valid number.\n")
     except TypeError as error:
         print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: {error}")
         return False
@@ -294,8 +294,8 @@ def validate_exit(choice):
     """
     try:
         if choice.lower() != "y" or choice.lower() != "n":
-            raise ValueError(f"""\nYou entered '{choice}'. Please enter either Y
-(for yes) or N (for no).\n""")
+            raise ValueError(f"\nYou entered '{choice}'. Please enter either Y"
+                             " (for yes) or N (for no).\n")
     except ValueError as error:
         print(f"{Fore.YELLOW}{Style.BRIGHT}\nInvalid entry: {error}")
         return False
@@ -344,8 +344,8 @@ def choose_player():
         player_computer = Player("O")
     else:
         player_computer = Player("X")
-    print(f"""You will play as {player_human.playing_as}! The computer will play
-as {player_computer.playing_as}. X goes first.\n""")
+    print(f"You will play as {player_human.playing_as}! The computer will play"
+          f" as {player_computer.playing_as}. X goes first.\n")
     input("Press enter to start the game...\n")
     if player_human.playing_as == "X":
         player_human.take_human_turn(player_human.playing_as)
@@ -386,8 +386,8 @@ def display_score():
     Displays the overall score for the player and the computer after each
     round of tic-tac-toe.
     """
-    print("You have won " + str(scores['player']) + """ game(s). The computer
-has won """ + str(scores['computer']) + " game(s).\n")
+    print("You have won " + str(scores['player']) + " game(s). The computer"
+          " has won " + str(scores['computer']) + " game(s).\n")
 
 
 def validate_move(cell):
@@ -397,11 +397,11 @@ def validate_move(cell):
     """
     try:
         if int(cell) < 1 or int(cell) > 9:
-            raise ValueError(f"""\nYou entered {cell}. Please enter a number
-between 1 - 9.\n""")
+            raise ValueError(f"\nYou entered {cell}. Please enter a number"
+                             " between 1 - 9.\n")
         if int(cell) in guesses:
-            raise ValueError("""\nThis cell is already occupied. Please enter
-another number.\n""")
+            raise ValueError("\nThis cell is already occupied. Please enter"
+                             " another number.\n")
     except ValueError as error:
         display_board_guide()
         board.display()
@@ -456,12 +456,12 @@ def high_score_option():
     when they are finished playing.
     """
     while True:
-        high_score_choice = input(str("""\nOkay! Would you like to save your score to
-the high score board? Y/N\n"""))
+        high_score_choice = input(str("\nOkay! Would you like to save your"
+                                      " score to the high score board? Y/N\n"))
         if high_score_choice.lower() == "y":
             save_high_score()
         if high_score_choice.lower() == "n":
-            print("Okay! Your score will not be recorded.\n")
+            print("\nOkay! Your score will not be recorded.\n")
             end_game()
         validate_exit(high_score_choice)
 
@@ -487,8 +487,8 @@ def get_username():
     Ask the player to provide a username, and check whether the input is valid.
     """
     while True:
-        username = input("""\nPlease enter a username between 3 and 8
-letters:\n""")
+        username = input("\nPlease enter a username between 3 and 8"
+                         " letters:\n")
         if validate_username(username):
             break
 
@@ -503,13 +503,13 @@ def validate_username(username):
     try:
         if username.isalpha() is False:
             raise ValueError(
-                f"""\nThe username '{username}' contains characters that are not letters.
-Please only use letters between A - Z."""
+                f"\nThe username '{username}' contains characters that are not"
+                " letters.\nPlease only use letters between A - Z."
             )
         if len(username) > 8 or len(username) < 3:
             raise ValueError(
-                f"""\nThis username is {len(username)} characters long.
-Please use between 3 and 8 letters."""
+                f"\nThis username is {len(username)} characters long."
+                " Please use between 3 and 8 letters."""
             )
 
     except ValueError as error:
@@ -524,8 +524,9 @@ def end_game():
     Ends gameplay with instructions on how to restart the program, and the
     option to return to the main menu.
     """
-    print("""I hope you enjoyed playing Tic-Tac-Toe! Press the orange 'Run Program'
-button above if you would like to start over. Otherwise:\n""")
+    print("I hope you enjoyed playing Tic-Tac-Toe! Press the orange 'Run\n"
+          "Program' button above if you would like to start the program"
+          " over\nand reset all scores to '0'. Otherwise:\n")
     exit_option()
 
 
@@ -534,8 +535,8 @@ def display_board_guide():
     Displays a sample board with numbered cells, so the user knows which
     number to input for each cell.
     """
-    print("""\nUse this board as a guide when making guesses. Each number
-corresponds to a cell on the board.\n""")
+    print("\nUse this board as a guide when making guesses. Each number"
+          " corresponds to a cell on the board.\n")
     print(" 1 | 2 | 3 ")
     print(" ---------")
     print(" 4 | 5 | 6 ")
