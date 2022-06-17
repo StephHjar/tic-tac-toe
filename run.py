@@ -322,6 +322,7 @@ def show_high_scores():
     exit_option()
 
 
+# Functions for gameplay
 def start_new_game():
     """
     Starts a new game of tic-tac-toe. Resets the player and computer scores
@@ -459,6 +460,32 @@ def new_game_option():
     return new_game_choice
 
 
+def display_board_guide():
+    """
+    Displays a sample board with numbered cells, so the user knows which
+    number to input for each cell.
+    """
+    print("\nUse this board as a guide when making guesses. Each number"
+          " corresponds to a cell on the board.\n")
+    print(" 1 | 2 | 3 ")
+    print(" ---------")
+    print(" 4 | 5 | 6 ")
+    print(" ---------")
+    print(" 7 | 8 | 9 \n")
+
+
+def end_game():
+    """
+    Ends gameplay with instructions on how to restart the program, and the
+    option to return to the main menu.
+    """
+    print("I hope you enjoyed playing Tic-Tac-Toe! Press the orange 'Run\n"
+          "Program' button above if you would like to start the program"
+          " over\nand reset all scores to '0'. Otherwise:\n")
+    exit_option()
+
+
+# Functions for writing to and reading from the high score board
 def high_score_option():
     """
     Gives the player the option to save their score to the high score board
@@ -528,31 +555,7 @@ def validate_username(username):
     return True
 
 
-def end_game():
-    """
-    Ends gameplay with instructions on how to restart the program, and the
-    option to return to the main menu.
-    """
-    print("I hope you enjoyed playing Tic-Tac-Toe! Press the orange 'Run\n"
-          "Program' button above if you would like to start the program"
-          " over\nand reset all scores to '0'. Otherwise:\n")
-    exit_option()
-
-
-def display_board_guide():
-    """
-    Displays a sample board with numbered cells, so the user knows which
-    number to input for each cell.
-    """
-    print("\nUse this board as a guide when making guesses. Each number"
-          " corresponds to a cell on the board.\n")
-    print(" 1 | 2 | 3 ")
-    print(" ---------")
-    print(" 4 | 5 | 6 ")
-    print(" ---------")
-    print(" 7 | 8 | 9 \n")
-
-
+# Functions to run at the start of the program
 def main():
     """
     Run functions needed to start the program.
