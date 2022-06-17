@@ -72,8 +72,11 @@ class Board():
             [2, 5, 8], [0, 4, 8], [2, 4, 6]
         ]
         for win in wins:
-            if (self.cells[win[0]] == player and self.cells[win[1]] == player
-               and self.cells[win[2]] == player):
+            if (
+                self.cells[win[0]] == player and
+                self.cells[win[1]] == player and
+                self.cells[win[2]] == player
+            ):
                 return True
 
 
