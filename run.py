@@ -14,7 +14,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
-    ]
+]
 
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
@@ -70,7 +70,7 @@ class Board():
         wins = [
             [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7],
             [2, 5, 8], [0, 4, 8], [2, 4, 6]
-            ]
+        ]
         for win in wins:
             if (self.cells[win[0]] == player and self.cells[win[1]] == player
                and self.cells[win[2]] == player):
