@@ -38,6 +38,9 @@ I adjusted the line spacing in the function, and no errors were found on a secon
 
 ![PEP8 results 2](documentation/testing/pep8_result2.png)
 
+After making some changes to the code (spacing/indentation), a third pass also came back with no issues:
+![PEP8 results 3](documentation/testing/pep8_result3.png)
+
 
 ### Unfixed Bugs
 
