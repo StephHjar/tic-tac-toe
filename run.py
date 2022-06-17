@@ -29,8 +29,6 @@ SHEET = GSPREAD_CLIENT.open('tic_tac_toe_scores')
 
 high_scores = SHEET.worksheet("high_scores")
 
-high_score_data = high_scores.get_all_values()
-
 # Track scores and guesses made throughout the game
 scores = {"computer": 0, "player": 0}
 guesses = []
@@ -315,6 +313,7 @@ def show_high_scores():
     exit to the main menu. The 'sort' code was adapted from PythonTutorial.net
     (credit in README).
     """
+    high_score_data = high_scores.get_all_values()
     print("\nHIGH SCORES\n")
     high_score_data.sort(key=sort_key, reverse=True)
     print(tabulate(high_score_data[0:5:1], headers=["Username", "Score"]))
