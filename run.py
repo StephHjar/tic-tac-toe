@@ -321,7 +321,6 @@ def start_new_game():
     clear_board()
     board.display()
     choose_player()
-    exit_option()
 
 
 def clear_board():
