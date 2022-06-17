@@ -464,8 +464,8 @@ def display_board_guide():
     Displays a sample board with numbered cells, so the user knows which
     number to input for each cell.
     """
-    print("\nUse this board as a guide when making guesses. Each number\n"
-          " corresponds to a cell on the board.\n")
+    print("\nUse this board as a guide when placing your X or O. Each number\n"
+          "corresponds to a cell on the board.\n")
     print(" 1 | 2 | 3 ")
     print(" ---------")
     print(" 4 | 5 | 6 ")

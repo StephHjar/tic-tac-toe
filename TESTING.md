@@ -37,6 +37,7 @@ The program was tested manually by going through all possible error validation m
 |Confirm writing to high score board|Yes|![High score confirmation message](documentation/testing/high_score_confirmation.png)|
 |Update Google Sheet|Yes|![Updated spreadsheet](documentation/testing/high_score_sheet.png)
 
+Please see the [Closed Issues tab on GitHub](https://github.com/StephHjar/tic-tac-toe/issues?q=is%3Aissue+is%3Aclosed) for a list of all resolved bugs.
 
 ### Validator Testing 
 Code was passed through the [PEP8 online linter](http://pep8online.com/). On the initial run, one issue was found, a line break before a binary operator:
