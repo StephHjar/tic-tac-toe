@@ -25,8 +25,10 @@ The program was tested manually by going through all possible error validation m
 |New game options: enter a letter other than Y or N|Yes|![Successful error message](documentation/testing/new_game_letter.png)|
 |New game options: enter a special character|Yes|![Successful error message](documentation/testing/new_game_special_character.png)|
 |New game options: enter a number|Yes|![Successful error message](documentation/testing/new_game_number.png)|
-
-
+|High score options: enter a space|Yes|![Successful error message](documentation/testing/high_score_space.png)|
+|High score options: enter a letter other than Y or N|Yes|![Successful error message](documentation/testing/high_score_letter.png)|
+|High score options: enter a special character|Yes|![Successful error message](documentation/testing/high_score_special_character.png)|
+|High score options: enter a number|Yes|![Successful error message](documentation/testing/high_score_number.png)|
 
 
 ### Validator Testing 
