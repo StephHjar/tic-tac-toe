@@ -36,7 +36,7 @@ Code was passed through the [PEP8 online linter](http://pep8online.com/). On the
 
 I adjusted the line spacing in the function, and no errors were found on a second pass:
 
-![PEP8 results 1](documentation/testing/pep8_result2.png)
+![PEP8 results 2](documentation/testing/pep8_result2.png)
 
 
 ### Unfixed Bugs
