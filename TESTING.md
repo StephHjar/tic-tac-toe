@@ -29,6 +29,11 @@ The program was tested manually by going through all possible error validation m
 |High score options: enter a letter other than Y or N|Yes|![Successful error message](documentation/testing/high_score_letter.png)|
 |High score options: enter a special character|Yes|![Successful error message](documentation/testing/high_score_special_character.png)|
 |High score options: enter a number|Yes|![Successful error message](documentation/testing/high_score_number.png)|
+|Username entry: enter a space|Yes|![Successful error message](documentation/testing/username_space.png)|
+|Username entry: enter a special character|Yes|![Successful error message](documentation/testing/username_special_character.png)|
+|Username entry: enter a number|Yes|![Successful error message](documentation/testing/username_number.png)|
+|Username entry: less than 3 letters|Yes|![Successful error message](documentation/testing/username_letter3.png)|
+|Username entry: more than 8 letters|Yes|![Successful error message](documentation/testing/username_letter8.png)|
 
 
 ### Validator Testing 
