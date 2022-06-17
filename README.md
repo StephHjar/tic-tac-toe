@@ -8,12 +8,14 @@ Users can also view a high score board to see how they compare to other players.
 
 For more information on the game of Tic-Tac-Toe, see [Wikipedia](https://en.wikipedia.org/wiki/Tic-tac-toe).
 
+[Play the deployed version here!](https://tic-tac-toe-steph.herokuapp.com/)
+
 ## Flowchart
 I created a flowchart to determine the logic of the game before starting to code. This allowed me to visualize the steps the user and computer each need to complete as they progress through the game.
 
 This also helped with planning input validation, and the options presented to the user when the program is initalized (play game, view instructions, and view the high score board).
 
-The only deviation from this flowchart was that I decided to ask for a username only at the end of gameplay, if a user chooses to add their score to the high score board. There was no need to ask for a username to start the game, and if the user doens't elect to add their score to the board, their username was collected for no purpose. Asking for the username only when it is needed makes the flow of the program more streamlined.
+The only deviation from this flowchart was that I decided to ask for a username only at the end of gameplay, if a user chooses to add their score to the high score board. There was no need to ask for a username to start the game, and if the user doesn't elect to add their score to the board, their username was collected for no purpose. Asking for the username only when it is needed makes the flow of the program more streamlined.
 
 ![Flowchart](documentation/flowchart/tictactoe_flowchart.png)
 
@@ -316,5 +318,6 @@ The frontend terminal should now be connected and deployed to Heroku.
 - I used code from [this page on PythonTutorial.net](https://www.pythontutorial.net/python-basics/python-sort-list/#:~:text=Summary-,Use%20the%20Python%20List%20sort()%20method%20to%20sort%20a,reverse%20the%20default%20sort%20order.) to sort the high score list by score. Specifically, the 'Using the Python List sort() method to sort a list of tuples' section of this page.
 - I used "Method #1 Using `all()`" on [GeeksforGeeks](https://www.geeksforgeeks.org/python-check-if-all-elements-in-list-follow-a-condition/) to check if all elements in a list are equal to X or O, in the `is_winner()` function.
 - I used ideas from the answers to [this thread on StackOverflow](https://stackoverflow.com/questions/10666163/how-to-check-if-all-elements-of-a-list-match-a-condition) while refactoring the `is_winner()` function. 
-- Thank you to my mentor for this project, Tim Nelson, for support and guidance throughout - and for the deployment steps I used in my README!
 
+- Thank you to my mentors for this project, Tim Nelson and Narender Singh, for support and guidance throughout - and for helping with the deployment steps in my README.
+- Big thank you to my fiancé and #1 manual, Jonathan, for playing more games of Tic-Tac-Toe in the space of a week than anyone has probably played in a lifetime!
