@@ -111,7 +111,7 @@ class Player():
                 if validate_move(cell_choice):
                     guesses.append(int(cell_choice))
                     update_board(cell_choice, player)
-                    print(f"Okay! You have chosen cell {cell_choice}."
+                    print(f"Okay! You have chosen cell {cell_choice}.\n"
                           "\nPlease wait...\n")
                     time.sleep(2)
                     if len(guesses) >= 5:
@@ -135,7 +135,7 @@ class Player():
                 guesses.append(int(cell_choice))
                 update_board(cell_choice, player)
                 print(f"Computer has chosen to place their {player} in cell"
-                      f" {cell_choice}."
+                      f" {cell_choice}.\n"
                       "\nPlease wait...\n")
                 time.sleep(1)
                 if len(guesses) >= 5:
